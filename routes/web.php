@@ -24,3 +24,7 @@ Route::get('forgot', function () {
 Route::get('recover', function () {
     return view('login/recover');
 });
+
+Route::get('dashboard', function () {
+    return view('layout/dashboard');
+});
