@@ -28,3 +28,7 @@ Route::get('recover', function () {
 Route::get('dashboard', function () {
     return view('layout/dashboard');
 });
+
+Route::get('form', function () {
+    return view('layout/form');
+});

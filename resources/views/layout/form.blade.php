@@ -254,12 +254,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Form</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard v1</li>
+                                <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                                <li class="breadcrumb-item active">Form</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -268,6 +268,44 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
+            <div class="card card-primary">
+                <!-- /.card-header -->
+                <!-- form start -->
+                <form>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="nama1">Telah Terima dari:</label>
+                            <input type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
+                        </div>
+                        <div class="form-group">
+                            <label for="uang1">Uang Sebanyak:</label>
+                            <input type="uang" class="form-control" id="uang1" placeholder="Maukkan nominal uang">
+                        </div>
+                        <div class="form-group">
+                            <label for="ket">Guna Membayar:</label>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                            </div>
+                            <!-- Date and time -->
+                            <div class="form-group">
+                                <label>Date and time:</label>
+                                <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
+                                    <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Pilih</label>
+                                <select class="form-control">
+                                    <option>Radio</option>
+                                    <option>Videotron</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+            </div>
             <!-- /.card-body -->
 
             <div class="card-footer">
