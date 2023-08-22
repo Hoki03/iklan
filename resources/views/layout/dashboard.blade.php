@@ -904,8 +904,8 @@
                             <div class="form-group">
                                 <label>Pilih</label>
                                 <select class="form-control">
-                                    <option>Videotron</option>
                                     <option>Radio</option>
+                                    <option>Videotron</option>
                                 </select>
                             </div>
                         </div>
