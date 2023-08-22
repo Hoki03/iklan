@@ -20,3 +20,7 @@ Route::get('/', function () {
 Route::get('forgot', function () {
     return view('login/forgot');
 });
+
+Route::get('recover', function () {
+    return view('login/recover');
+});
