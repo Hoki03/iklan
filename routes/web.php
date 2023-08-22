@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('login/login');
 });
+
+Route::get('forgot', function () {
+    return view('login/forgot');
+});
