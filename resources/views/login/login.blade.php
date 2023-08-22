@@ -51,7 +51,7 @@
       Jika lupa password silahkan klik
     </div>
     <div class="text-center">
-      <a href="login/forgot.blade.php">Lupa Password</a>
+      <a href="forgot">Lupa Password</a>
     </div>
   </div>
   <!-- /.center -->
