@@ -36,3 +36,5 @@ Route::get('form', function () {
 });
 
 Route::get('data_user', [ControllersHomeController::class, 'table']);
+
+Route::get('data_pelanggan', [ControllersHomeController::class, 'pelanggan']);

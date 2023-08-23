@@ -137,7 +137,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_pelanggan" class="nav-link">
+                                    <a href="data_pelanggan" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data pelanggan</p>
                                     </a>
@@ -158,12 +158,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Dashboard</h1>
+                            <h1 class="m-0">Data Pelanggan</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                                <li class="breadcrumb-item active">Dashboard</li>
+                                <li class="breadcrumb-item active">Data Pelanggan</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -174,12 +174,58 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Table</h3>
 
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-head-fixed text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>User</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($data_pelanggan as $d) : ?>
+                                                <tr>
+                                                    <td><?= $d['id'] ?></td>
+                                                    <td><?= $d['name']; ?></td>
+                                                    <td><?= $d['email']; ?></td>
+                                                    <td>
+                                                        <a href="" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
+                                                        <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <!-- /.card-body -->
         </div>
-        <!-- /.content -->
+        <!-- /.card -->
     </div>
     <!-- /.content-wrapper -->
     <footer class="main-footer">

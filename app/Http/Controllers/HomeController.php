@@ -9,8 +9,14 @@ class HomeController extends Controller
 {
     public function table()
     {
-        $data = User::get();
+        $data_user = User::get();
 
-        return view('layout/table', compact('data'));
+        return view('layout/table_user', compact('data_user'));
+    }
+
+    public function pelanggan()
+    {
+        $data_pelanggan = User::get();
+        return view('layout/table_pelanggan', compact('data_pelanggan'));
     }
 }

@@ -137,9 +137,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="kuitansi" class="nav-link">
+                                    <a href="data_pelanggan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Kuitansi</p>
+                                        <p>Data pelanggan</p>
                                     </a>
                                 </li>
                             </ul>
@@ -158,12 +158,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">User Data</h1>
+                            <h1 class="m-0">Data User</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                                <li class="breadcrumb-item active">User Data</li>
+                                <li class="breadcrumb-item active">Data User</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -193,7 +193,7 @@
                                     </div>
                                 </div>
                                 <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0" style="height: 345px;">
+                                <div class="card-body table-responsive p-0">
                                     <table class="table table-head-fixed text-nowrap">
                                         <thead>
                                             <tr>
@@ -204,7 +204,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($data as $d) : ?>
+                                            <?php foreach ($data_user as $d) : ?>
                                                 <tr>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['name']; ?></td>

@@ -137,9 +137,9 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="kuitansi" class="nav-link">
+                                    <a href="data_pelanggan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Kuitansi</p>
+                                        <p>Data pelanggan</p>
                                     </a>
                                 </li>
                             </ul>
