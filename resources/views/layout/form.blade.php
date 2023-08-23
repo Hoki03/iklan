@@ -172,67 +172,70 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <div class="card card-primary">
-                <!-- /.card-header -->
-                <!-- form start -->
-                <form>
-                    <div class="card-body">
-                        <div class="form-group">
-                            <label for="nama1">Telah Terima dari:</label>
-                            <input type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
-                        </div>
-                        <div class="form-group">
-                            <label for="uang1">Uang Sebanyak:</label>
-                            <input type="uang" class="form-control" id="uang1" placeholder="Maukkan nominal uang">
-                        </div>
-                        <div class="form-group">
-                            <label for="ket">Guna Membayar:</label>
-                            <div class="form-group">
-                                <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
-                            </div>
-                            <!-- Date and time -->
-                            <div class="form-group">
-                                <label>Date and time:</label>
-                                <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
-                                    <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
-                                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="card card-primary">
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="nama1">Telah Terima dari:</label>
+                                    <input type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
+                                </div>
+                                <div class="form-group">
+                                    <label for="uang1">Uang Sebanyak:</label>
+                                    <input type="uang" class="form-control" id="uang1" placeholder="Maukkan nominal uang">
+                                </div>
+                                <div class="form-group">
+                                    <label for="ket">Guna Membayar:</label>
+                                    <div class="form-group">
+                                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    </div>
+                                    <!-- Date and time -->
+                                    <div class="form-group">
+                                        <label>Date and time:</label>
+                                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
+                                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Pilih</label>
+                                        <select class="form-control">
+                                            <option>Radio</option>
+                                            <option>Videotron</option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label>Pilih</label>
-                                <select class="form-control">
-                                    <option>Radio</option>
-                                    <option>Videotron</option>
-                                </select>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                        </div>
+                        </form>
                     </div>
-            </div>
+                </div>
+            </section>
             <!-- /.card-body -->
-
-            <div class="card-footer">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-            </form>
         </div>
         <!-- /.content -->
+    </div>
+    <!-- /.content-wrapper -->
+    <footer class="main-footer">
+        <strong>Copyright &copy; 2023 <a href="#">Iklan</a>.</strong>
+        All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+            <b>Version</b> 1.0.0
+        </div>
+    </footer>
 
-        <!-- /.content-wrapper -->
-        <footer class="main-footer">
-            <strong>Copyright &copy; 2023 <a href="#">Iklan</a>.</strong>
-            All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
-                <b>Version</b> 1.0.0
-            </div>
-        </footer>
-
-        <!-- Control Sidebar -->
-        <aside class="control-sidebar control-sidebar-dark">
-            <!-- Control sidebar content goes here -->
-        </aside>
-        <!-- /.control-sidebar -->
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+        <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
     </div>
     <!-- ./wrapper -->
 
