@@ -37,3 +37,4 @@ Route::get('form', function () {
 Route::get('data_user', [HomeController::class, 'user']);
 Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
 Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
+Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');

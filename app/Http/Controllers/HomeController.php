@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Pelanggan;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redis;
 use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
@@ -41,6 +42,15 @@ class HomeController extends Controller
 
         Pelanggan::create($data_pelanggan);
 
+        return redirect()->route('form');
+    }
+
+    public function hapus_pelanggan(Request $request, $id)
+    {
+        $data_pelanggan = Pelanggan::find($id);
+        if ($data_pelanggan) {
+            $data_pelanggan->delete();
+        }
         return redirect()->route('form');
     }
 }
