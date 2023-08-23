@@ -19,15 +19,15 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', [LoginController::class, 'login'])->name('login');
 Route::post('/login_proses', [LoginController::class, 'login_proses'])->name('login_proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
+Route::get('forgot', function () {
+    return view('login/forgot');
+});
+
+Route::get('recover', function () {
+    return view('login/recover');
+});
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
-    Route::get('forgot', function () {
-        return view('login/forgot');
-    });
-
-    Route::get('recover', function () {
-        return view('login/recover');
-    });
 
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 

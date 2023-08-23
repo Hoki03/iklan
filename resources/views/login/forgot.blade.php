@@ -20,7 +20,7 @@
   <div class="login-box">
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
-        <a href="{{asset('lte/index2.html')}}" class="h1"><b>Password</b>LTE</a>
+        <a href="{{asset('/')}}" class="h1"><b>Password</b>LTE</a>
       </div>
       <div class="card-body">
         <p class="login-box-msg">Masukkan Email untuk meminta akses ganti password.</p>
