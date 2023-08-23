@@ -32,3 +32,7 @@ Route::get('dashboard', function () {
 Route::get('form', function () {
     return view('layout/form');
 });
+
+Route::get('data_user', function () {
+    return view('layout/table');
+});
