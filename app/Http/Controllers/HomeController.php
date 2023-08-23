@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
+    public function dashboard()
+    {
+        return view('layout/dashboard');
+    }
+
     public function user()
     {
         $data_user = User::get();

@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,27 +16,27 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login/login');
-});
+Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::post('/login_proses', [LoginController::class, 'login_proses'])->name('login_proses');
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
-Route::get('forgot', function () {
-    return view('login/forgot');
-});
+Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
+    Route::get('forgot', function () {
+        return view('login/forgot');
+    });
 
-Route::get('recover', function () {
-    return view('login/recover');
-});
+    Route::get('recover', function () {
+        return view('login/recover');
+    });
 
-Route::get('dashboard', function () {
-    return view('layout/dashboard');
-});
+    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
 
-Route::get('form', function () {
-    return view('layout/form');
-});
+    Route::get('form', function () {
+        return view('layout/form');
+    });
 
-Route::get('data_user', [HomeController::class, 'user']);
-Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
-Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
-Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');
+    Route::get('data_user', [HomeController::class, 'user']);
+    Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
+    Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
+    Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');
+});
