@@ -177,34 +177,44 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form>
+                        <form action="{{route('tambah_pelanggan')}}" method="POST">
+                            @csrf
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="nama1">Telah Terima dari:</label>
-                                    <input type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
+                                    <input name="nama" type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
+                                    @error('nama')
+                                    <small>*{{$message}}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="uang1">Uang Sebanyak:</label>
-                                    <input type="uang" class="form-control" id="uang1" placeholder="Maukkan nominal uang">
+                                    <input type="nominal" class="form-control" id="uang1" name="nominal" placeholder="Maukkan nominal uang">
+                                    @error('nominal')
+                                    <small>*{{$message}}</small>
+                                    @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="ket">Guna Membayar:</label>
                                     <div class="form-group">
-                                        <textarea class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                        <textarea type="keterangan" name="keterangan" class="form-control" rows="3" placeholder="Enter ..."></textarea>
                                     </div>
                                     <!-- Date and time -->
                                     <div class="form-group">
                                         <label>Date and time:</label>
                                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                            <input type="text" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
+                                            <input type="text" name="time" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
                                             <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </div>
+                                        @error('time')
+                                        <small>*{{$message}}</small>
+                                        @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Pilih</label>
-                                        <select class="form-control">
+                                        <select class="form-control" type="pilihan" name="pilihan">
                                             <option>Radio</option>
                                             <option>Videotron</option>
                                         </select>

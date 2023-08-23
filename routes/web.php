@@ -1,7 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\HomeController;
-use App\Http\Controllers\HomeController as ControllersHomeController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -35,6 +34,6 @@ Route::get('form', function () {
     return view('layout/form');
 });
 
-Route::get('data_user', [ControllersHomeController::class, 'table']);
-
-Route::get('data_pelanggan', [ControllersHomeController::class, 'pelanggan']);
+Route::get('data_user', [HomeController::class, 'user']);
+Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
+Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
