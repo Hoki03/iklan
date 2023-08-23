@@ -172,60 +172,62 @@
             <!-- /.content-header -->
 
             <!-- Main content -->
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Table</h3>
+            <section class="content">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Table</h3>
 
-                            <div class="card-tools">
-                                <div class="input-group input-group-sm" style="width: 150px;">
-                                    <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
 
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-default">
-                                            <i class="fas fa-search"></i>
-                                        </button>
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0" style="height: 345px;">
+                                    <table class="table table-head-fixed text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>User</th>
+                                                <th>Email</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($data as $d) : ?>
+                                                <tr>
+                                                    <td><?= $d['id'] ?></td>
+                                                    <td><?= $d['name']; ?></td>
+                                                    <td><?= $d['email']; ?></td>
+                                                    <td>
+                                                        <a href="" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
+                                                        <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
+                                                    </td>
+                                                </tr>
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
                             </div>
+                            <!-- /.card -->
                         </div>
-                        <!-- /.card-header -->
-                        <div class="card-body table-responsive p-0" style="height: 600px;">
-                            <table class="table table-head-fixed text-nowrap">
-                                <thead>
-                                    <tr>
-                                        <th>ID</th>
-                                        <th>User</th>
-                                        <th>Email</th>
-                                        <th>Password</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php foreach ($data as $d) : ?>
-                                        <tr>
-                                            <td><?= $d['id'] ?></td>
-                                            <td><?= $d['name']; ?></td>
-                                            <td><?= $d['email']; ?></td>
-                                            <td><?= $d['password']; ?></td>
-                                            <td>
-                                                <a href="" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
-                                                <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
-                                            </td>
-                                        </tr>
-                                    <?php endforeach; ?>
-                                </tbody>
-                            </table>
-                        </div>
-                        <!-- /.card-body -->
                     </div>
-                    <!-- /.card -->
-                </div>
-            </div>
-            <!-- /.card-body -->
-            <!-- /.content -->
+                    <!-- /.card-body -->
+                    <!-- /.content -->
 
+                </div>
+            </section>
         </div>
         <!-- /.content-wrapper -->
         <footer class="main-footer">
