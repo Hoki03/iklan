@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nama');
             $table->string('nominal')->default('Rp.');
             $table->string('keterangan')->nullable();
-            $table->dateTime('time');
+            $table->string('time');
             $table->string('pilihan');
             $table->timestamps();
         });

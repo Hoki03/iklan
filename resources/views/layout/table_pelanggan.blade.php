@@ -198,8 +198,11 @@
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>User</th>
-                                                <th>Email</th>
+                                                <th>Nama</th>
+                                                <th>Nominal</th>
+                                                <th>Keterangan</th>
+                                                <th>Waktu</th>
+                                                <th>Pilihan</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -207,8 +210,11 @@
                                             <?php foreach ($data_pelanggan as $d) : ?>
                                                 <tr>
                                                     <td><?= $d['id'] ?></td>
-                                                    <td><?= $d['name']; ?></td>
-                                                    <td><?= $d['email']; ?></td>
+                                                    <td><?= $d['nama']; ?></td>
+                                                    <td><?= $d['nominal']; ?></td>
+                                                    <td><?= $d['keterangan']; ?></td>
+                                                    <td><?= $d['time']; ?></td>
+                                                    <td><?= $d['pilihan']; ?></td>
                                                     <td>
                                                         <a href="" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
