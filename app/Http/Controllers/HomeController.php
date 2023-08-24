@@ -22,13 +22,36 @@ class HomeController extends Controller
         return view('layout/table_user', compact('data_user'));
     }
 
+    public function form_user()
+    {
+        return view('layout/tambah/tambah_user');
+    }
+
+    public function tambah_user(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'name'  =>  'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        $data_user['name']     = $request->name;
+        $data_user['email']  = $request->email;
+        $data_user['password']  = $request->password;
+
+        User::create($data_user);
+
+        return redirect()->route('admin.data_user');
+    }
+
     public function hapus_user(Request $request, $id)
     {
         $data_user = User::find($id);
         if ($data_user) {
             $data_user->delete();
         }
-        return redirect()->route('admin.user');
+        return redirect()->route('admin.data_user');
     }
 
     public function pelanggan()

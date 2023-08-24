@@ -17,7 +17,7 @@ class PelangganSeeder extends Seeder
     {
         Pelanggan::create([
             'nama'          => 'Hoki',
-            'nominal'       => '10000',
+            'nominal'       => '1000000',
             'keterangan'    => 'Oke',
             'time'          => '08/23/2023 12:55 PM',
             'pilihan'       => 'Radio',
