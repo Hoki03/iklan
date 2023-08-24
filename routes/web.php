@@ -40,6 +40,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::delete('hapus_user/{id}', [HomeController::class, 'hapus_user'])->name('hapus_user');
     Route::post('tambah_user', [HomeController::class, 'tambah_user'])->name('tambah_user');
 
+    Route::get('edit_user/{id}', [HomeController::class, 'edit_user'])->name('edit_user');
+    Route::put('update_user/{id}', [HomeController::class, 'update_user'])->name('update_user');
+
     Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
     Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
     Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');

@@ -22,6 +22,7 @@ class HomeController extends Controller
         return view('layout/table_user', compact('data_user'));
     }
 
+
     public function form_user()
     {
         return view('layout/tambah/tambah_user');
@@ -38,9 +39,35 @@ class HomeController extends Controller
 
         $data_user['name']     = $request->name;
         $data_user['email']  = $request->email;
-        $data_user['password']  = $request->password;
+        $data_user['password']  = bcrypt($request->password);
 
         User::create($data_user);
+
+        return redirect()->route('admin.data_user');
+    }
+
+    public function edit_user(Request $request, $id)
+    {
+        $data_user = User::find($id);
+        return view('layout/edit/edit_user', compact('data_user'));
+    }
+
+    public function update_user(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'name'  =>  'required',
+            'email' => 'required',
+            'password' => 'nullable',
+        ]);
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        $data_user['name']     = $request->name;
+        $data_user['email']  = $request->email;
+        if ($request->password) {
+            $data_user['password']  = bcrypt($request->password);
+        }
+
+        User::whereId($id)->update($data_user);
 
         return redirect()->route('admin.data_user');
     }
