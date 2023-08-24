@@ -204,7 +204,7 @@
                                                 <tr>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
-                                                    <td><?= $d['nominal']; ?></td>
+                                                    <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                                     <td><?= $d['keterangan']; ?></td>
                                                     <td><?= $d['time']; ?></td>
                                                     <td><?= $d['pilihan']; ?></td>
