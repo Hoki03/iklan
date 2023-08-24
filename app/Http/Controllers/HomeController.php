@@ -47,7 +47,7 @@ class HomeController extends Controller
 
         Pelanggan::create($data_pelanggan);
 
-        return redirect()->route('form');
+        return redirect()->route('admin.form');
     }
 
     public function hapus_pelanggan(Request $request, $id)
@@ -56,6 +56,13 @@ class HomeController extends Controller
         if ($data_pelanggan) {
             $data_pelanggan->delete();
         }
-        return redirect()->route('form');
+        return redirect()->route('admin.form');
+    }
+
+    public function hitung_pelanggan()
+    {
+        $data_pelanggan = Pelanggan::count();
+        $data_user = User::count();
+        return view('layout/dashboard', compact('data_pelanggan', 'data_user'));
     }
 }

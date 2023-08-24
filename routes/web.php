@@ -29,14 +29,14 @@ Route::get('recover', function () {
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
 
-    Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('dashboard', [HomeController::class, 'hitung_pelanggan'])->name('dashboard');
 
     Route::get('form', function () {
         return view('layout/form');
     });
 
     Route::get('data_user', [HomeController::class, 'user']);
-    Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
+    Route::get('data_pelanggan', [HomeController::class, 'pelanggan']);
     Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
     Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');
 });
