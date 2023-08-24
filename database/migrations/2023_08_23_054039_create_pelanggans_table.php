@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->string('nominal')->default('Rp.');
+            $table->integer('nominal');
             $table->string('keterangan')->nullable();
             $table->string('time');
             $table->string('pilihan');

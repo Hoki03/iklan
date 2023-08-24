@@ -211,6 +211,7 @@
                                                     <td>
                                                         <a href="" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
+                                                        <a href="struk" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                                                     </td>
                                                 </tr>
                                                 <div class="modal fade" id="modal-hapus{{$d->id}}">
@@ -225,7 +226,7 @@
                                                             <div class="modal-body">
                                                                 <p>Apakah kamu ingin menghapus data ini? (<b>{{$d->nama}}</b></b>)</p>
                                                             </div>
-                                                            <div class="modal-footer justify-content-between">
+                                                            <div class="modal-footer content-between">
                                                                 <form action="{{route('admin.hapus_pelanggan',['id'=>$d->id])}}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')

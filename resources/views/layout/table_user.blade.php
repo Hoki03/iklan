@@ -204,9 +204,35 @@
                                                     <td><?= $d['email']; ?></td>
                                                     <td>
                                                         <a href="" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
-                                                        <a href="" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
+                                                        <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
                                                     </td>
                                                 </tr>
+                                                <div class="modal fade" id="modal-hapus{{$d->id}}">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Konfirmasi Hapus Data</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Apakah kamu ingin menghapus data ini? (<b>{{$d->name}}</b></b>)</p>
+                                                            </div>
+                                                            <div class="modal-footer content-between">
+                                                                <form action="{{route('admin.hapus_pelanggan',['id'=>$d->id])}}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
                                             <?php endforeach; ?>
                                         </tbody>
                                     </table>

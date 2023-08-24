@@ -22,6 +22,15 @@ class HomeController extends Controller
         return view('layout/table_user', compact('data_user'));
     }
 
+    public function hapus_user(Request $request, $id)
+    {
+        $data_user = User::find($id);
+        if ($data_user) {
+            $data_user->delete();
+        }
+        return redirect()->route('admin.user');
+    }
+
     public function pelanggan()
     {
         $data_pelanggan = Pelanggan::get();
@@ -64,5 +73,10 @@ class HomeController extends Controller
         $data_pelanggan = Pelanggan::count();
         $data_user = User::count();
         return view('layout/dashboard', compact('data_pelanggan', 'data_user'));
+    }
+
+    public function struk()
+    {
+        return view('print/struk');
     }
 }

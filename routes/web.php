@@ -35,8 +35,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
         return view('layout/form');
     });
 
-    Route::get('data_user', [HomeController::class, 'user']);
-    Route::get('data_pelanggan', [HomeController::class, 'pelanggan']);
+    Route::get('data_user', [HomeController::class, 'user'])->name('data_user');
+    Route::delete('hapus_user/{id}', [HomeController::class, 'hapus_user'])->name('hapus_pelanggan');
+
+    Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
     Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
     Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');
+
+    Route::get('struk', [HomeController::class, 'struk'])->name('struk');
 });
