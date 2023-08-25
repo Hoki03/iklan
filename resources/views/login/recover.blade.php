@@ -50,7 +50,7 @@
         </form>
 
         <p class="mt-3 mb-1">
-          <a href="login.blade.php">Login</a>
+          <a href="/">Login</a>
         </p>
       </div>
       <!-- /.login-card-body -->
