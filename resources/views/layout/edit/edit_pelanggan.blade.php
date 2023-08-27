@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iklan | Data Pelanggan</title>
+    <title>Iklan | Form</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -117,7 +117,7 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="form" class="nav-link">
+                                    <a href="form" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Form</p>
                                     </a>
@@ -129,7 +129,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_pelanggan" class="nav-link active">
+                                    <a href="data_pelanggan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data pelanggan</p>
                                     </a>
@@ -151,12 +151,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Pelanggan</h1>
+                            <h1 class="m-0">Form</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                                <li class="breadcrumb-item active">Data Pelanggan</li>
+                                <li class="breadcrumb-item active">Form</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -167,91 +167,64 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Table</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input id="search_input" type="text" name="table_search" class="form-control float-right" placeholder="Search" onkeyup="myFunction()">
-
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
+                    <div class="card card-primary">
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="{{route('admin.update_pelanggan',['id'=>$data_pelanggan->id])}}" method="POST">
+                            @csrf
+                            @method('PUT')
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="nama1">Telah Terima dari:</label>
+                                    <input value="{{$data_pelanggan->nama}}" name="nama" type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
+                                    @error('nama')
+                                    <small>*{{$message}}</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="uang1">Uang Sebanyak:</label>
+                                    <input value="{{$data_pelanggan->nominal}}" type="nominal" class="form-control" id="uang1" name="nominal" placeholder="Maukkan nominal uang">
+                                    @error('nominal')
+                                    <small>*{{$message}}</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
+                                    <label for="ket">Guna Membayar:</label>
+                                    <div class="form-group">
+                                        <textarea type="keterangan" name="keterangan" class="form-control" rows="3"><?php echo $data_pelanggan->keterangan ?></textarea>
+                                    </div>
+                                    <!-- Date and time -->
+                                    <div class="form-group">
+                                        <label>Date and time:</label>
+                                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                                            <input value="{{$data_pelanggan->time}}" type="text" name="time" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
+                                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </div>
+                                        @error('time')
+                                        <small>*{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Pilih</label>
+                                        <select class="form-control" type="pilihan" name="pilihan">
+                                            <option value="Radio" <?php if ($data_pelanggan->pilihan == 'Radio') echo 'selected="selected"'; ?>>Radio</option>
+                                            <option value="Videotron" <?php if ($data_pelanggan->pilihan == 'Videotron') echo 'selected="selected"'; ?>>Videotron</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table id="table_pelanggan" class="table table-head-fixed text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nama</th>
-                                                <th>Nominal</th>
-                                                <th>Keterangan</th>
-                                                <th>Waktu</th>
-                                                <th>Pilihan</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($data_pelanggan as $d) : ?>
-                                                <tr>
-                                                    <td><?= $d['id'] ?></td>
-                                                    <td><?= $d['nama']; ?></td>
-                                                    <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
-                                                    <td><?= $d['keterangan']; ?></td>
-                                                    <td><?= $d['time']; ?></td>
-                                                    <td><?= $d['pilihan']; ?></td>
-                                                    <td>
-                                                        <a href="{{route('admin.edit_pelanggan',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
-                                                        <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
-                                                        <a href="struk" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
-                                                    </td>
-                                                </tr>
-                                                <div class="modal fade" id="modal-hapus{{$d->id}}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Konfirmasi Hapus Data</h4>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>Apakah kamu ingin menghapus data ini? (<b>{{$d->nama}}</b></b>)</p>
-                                                            </div>
-                                                            <div class="modal-footer content-between">
-                                                                <form action="{{route('admin.hapus_pelanggan',['id'=>$d->id])}}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Hapus</button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                        <!-- /.modal-content -->
-                                                    </div>
-                                                    <!-- /.modal-dialog -->
-                                                </div>
-                                                <!-- /.modal -->
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
-                                </div>
                             </div>
-                        </div>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </section>
             <!-- /.card-body -->
         </div>
-        <!-- /.card -->
+        <!-- /.content -->
 
         <!-- /.content-wrapper -->
         <footer class="main-footer">
@@ -298,27 +271,6 @@
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
-    <!-- search table -->
-    <script>
-        function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search_input");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("table_pelanggan");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
 
     <script>
         //Date and time picker

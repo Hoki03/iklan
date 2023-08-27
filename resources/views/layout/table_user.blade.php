@@ -178,7 +178,7 @@
 
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
+                                            <input id="search_input" type="text" name="table_search" class="form-control float-right" placeholder="Search" onkeyup="myFunction()">
 
                                             <div class="input-group-append">
                                                 <button type="submit" class="btn btn-default">
@@ -190,7 +190,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0">
-                                    <table class="table table-head-fixed text-nowrap">
+                                    <table id="table_user" class="table table-head-fixed text-nowrap">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
@@ -294,6 +294,27 @@
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
+    <!-- search table -->
+    <script>
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table_user");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
+    </script>
 
     <script>
         //Date and time picker

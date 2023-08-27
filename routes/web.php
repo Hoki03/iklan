@@ -43,6 +43,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::get('edit_user/{id}', [HomeController::class, 'edit_user'])->name('edit_user');
     Route::put('update_user/{id}', [HomeController::class, 'update_user'])->name('update_user');
 
+    Route::get('edit_pelanggan/{id}', [HomeController::class, 'edit_pelanggan'])->name('edit_pelanggan');
+    Route::put('update_pelanggan/{id}', [HomeController::class, 'update_pelanggan'])->name('update_pelanggan');
+
     Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
     Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
     Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');

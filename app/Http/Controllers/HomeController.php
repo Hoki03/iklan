@@ -109,6 +109,39 @@ class HomeController extends Controller
         return redirect()->route('admin.form');
     }
 
+    public function edit_pelanggan(Request $request, $id)
+    {
+        $data_pelanggan = Pelanggan::find($id);
+        return view('layout/edit/edit_pelanggan', compact('data_pelanggan'));
+    }
+
+    public function update_pelanggan(Request $request, $id)
+    {
+        $validator = Validator::make($request->all(), [
+            'nama'  =>  'required',
+            'nominal' => 'required',
+            'keterangan' => 'nullable',
+            'time' => 'nullable',
+            'pilihan' => 'required',
+        ]);
+        if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
+
+        $data_pelanggan['nama']     = $request->nama;
+        $data_pelanggan['nominal']  = $request->nominal;
+        $data_pelanggan['pilihan']  = $request->pilihan;
+        if ($request->keterangan) {
+            $data_pelanggan['keterangan']  = $request->keterangan;
+        }
+        if ($request->time) {
+            $data_pelanggan['time']  = $request->time;
+        }
+
+        Pelanggan::whereId($id)->update($data_pelanggan);
+
+        return redirect()->route('admin.form');
+    }
+
+
     public function hapus_pelanggan(Request $request, $id)
     {
         $data_pelanggan = Pelanggan::find($id);
