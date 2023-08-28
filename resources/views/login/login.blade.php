@@ -23,7 +23,7 @@
           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="{{asset('windmil/public/assets/img/login-office-dark.jpeg')}}" alt="Office" />
         </div> -->
       <center>
-        <div class="flex items-center justify-center p-6 sm:p-12 md:w-1/2 ">
+        <div class="flex items-center justify-center p-20 sm:p-12 md:w-1/2 ">
           <div class="w-full">
             <form action="{{route('login_proses')}}" method="post">
               @csrf
