@@ -160,11 +160,13 @@ class HomeController extends Controller
 
     public function struk()
     {
-        return view('print/struk');
+        $data_pelanggan = Pelanggan::get();
+        return view('print/struk', compact('data_pelanggan'));
     }
 
     public function printall()
     {
-        return view('print/printall');
+        $data_pelanggan = Pelanggan::get();
+        return view('print/printall', compact('data_pelanggan'));
     }
 }
