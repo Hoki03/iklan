@@ -51,4 +51,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], 
     Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');
 
     Route::get('struk', [HomeController::class, 'struk'])->name('struk');
+    Route::get('printall', [HomeController::class, 'printall'])->name('printall');
 });

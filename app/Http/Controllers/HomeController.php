@@ -162,4 +162,9 @@ class HomeController extends Controller
     {
         return view('print/struk');
     }
+
+    public function printall()
+    {
+        return view('print/printall');
+    }
 }
