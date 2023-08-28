@@ -158,13 +158,15 @@ class HomeController extends Controller
         return view('layout/dashboard', compact('data_pelanggan', 'data_user'));
     }
 
-    public function struk()
+    public function struk(Request $request, $id)
     {
-        return view('print/struk');
+        $data_pelanggan = Pelanggan::find($id);
+        return view('print/struk', compact('data_pelanggan'));
     }
 
     public function printall()
     {
-        return view('print/printall');
+        $data_pelanggan = Pelanggan::get();
+        return view('print/printall', compact('data_pelanggan'));
     }
 }
