@@ -131,7 +131,7 @@
                                 <li class="nav-item">
                                     <a href="data_pelanggan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Data pelanggan</p>
+                                        <p>Daftar Form </p>
                                     </a>
                                 </li>
                             </ul>
