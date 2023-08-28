@@ -158,9 +158,9 @@ class HomeController extends Controller
         return view('layout/dashboard', compact('data_pelanggan', 'data_user'));
     }
 
-    public function struk()
+    public function struk(Request $request, $id)
     {
-        $data_pelanggan = Pelanggan::get();
+        $data_pelanggan = Pelanggan::find($id);
         return view('print/struk', compact('data_pelanggan'));
     }
 

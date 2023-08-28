@@ -212,7 +212,7 @@
                                                     <td>
                                                         <a href="{{route('admin.edit_pelanggan',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
-                                                        <a href="struk" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                                                        <a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                                                     </td>
                                                 </tr>
                                                 <div class="modal fade" id="modal-hapus{{$d->id}}">
