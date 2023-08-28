@@ -161,7 +161,9 @@ class HomeController extends Controller
     public function struk(Request $request, $id)
     {
         $data_pelanggan = Pelanggan::find($id);
-        return view('print/struk', compact('data_pelanggan'));
+        $pelanggan = Pelanggan::get();
+
+        return view('print/struk', compact('data_pelanggan', 'pelanggan'));
     }
 
     public function printall()
