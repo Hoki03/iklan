@@ -152,7 +152,7 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Daftar Form</h1>
-                            <a href="struk" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
+                            <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
