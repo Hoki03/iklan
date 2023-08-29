@@ -191,6 +191,7 @@
                                     <table id="table_pelanggan" class="table table-head-fixed text-nowrap">
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Nominal</th>
@@ -203,6 +204,7 @@
                                         <tbody>
                                             <?php foreach ($data_pelanggan as $d) : ?>
                                                 <tr>
+                                                    <td><input type="checkbox" name="id[]" value="" disabled></td>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
