@@ -92,7 +92,7 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
             'nama'  =>  'required',
             'nominal' => 'required',
-            'keterangan' => 'required',
+            'keterangan' => 'nullable',
             'time'  =>  'required',
             'pilihan' => 'required',
         ]);
