@@ -57,47 +57,26 @@
     <div class="row">
         <div class="col-12 table-responsive mt-5">
             <table class="table table-striped">
-                <?php foreach ($pelanggan as $d) : ?>
-                    <thead>
                         <tr>
-                            <th>Qty</th>
-                            <th>Product</th>
-                            <th>Serial #</th>
-                            <th>Description</th>
-                            <th>Subtotal</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>{{$d->nama}}</td>
-                            <td>455-981-221</td>
-                            <td>El snort testosterone trophy driving gloves handsome</td>
-                            <td>$64.50</td>
+                            <td>Telah Terima dari :</td>
+                            <td>{{$data_pelanggan->nama}}</td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>Need for Speed IV</td>
-                            <td>247-925-726</td>
-                            <td>Wes Anderson umami biodiesel</td>
-                            <td>$50.00</td>
+                            <td>Uang Sebanyak :</td>
+                            <td>{{$data_pelanggan->nominal}}</td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>Monsters DVD</td>
-                            <td>735-845-642</td>
-                            <td>Terry Richardson helvetica tousled street art master</td>
-                            <td>$10.70</td>
+                            <td>Guna Membayar :</td>
+                            <td>{{$data_pelanggan->keterangan}}</td>
                         </tr>
                         <tr>
-                            <td>1</td>
-                            <td>Grown Ups Blue Ray</td>
-                            <td>422-568-642</td>
-                            <td>Tousled lomo letterpress</td>
-                            <td>$25.99</td>
+                            <td>Date and time :</td>
+                            <td>{{$data_pelanggan->time}}</td>
                         </tr>
-                    </tbody>
-                <?php endforeach ?>
+                        <tr>
+                            <td>Pilih :</td>
+                            <td>{{$data_pelanggan->pilihan}}</td>
+                        </tr>
             </table>
         </div>
         <!-- /.col -->
