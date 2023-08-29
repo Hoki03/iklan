@@ -44,7 +44,7 @@
         <!-- /.col -->
         <div class="col-sm-2 invoice-col">
             <h2><b>KUITANSI</b></h2><br>
-            <b>No. {{$data_pelanggan->id}}</b>
+            <b>No. </b>
         </div>
         <!-- /.col -->
     </div>
@@ -54,26 +54,47 @@
     <div class="row">
         <div class="col-12 table-responsive">
             <table class="table table-striped">
+                <?php foreach ($pelanggan as $d) : ?>
+                    <thead>
                         <tr>
-                            <td>Telah Terima dari :</td>
-                            <td>{{$data_pelanggan->nama}}</td>
+                            <th>Qty</th>
+                            <th>Product</th>
+                            <th>Serial #</th>
+                            <th>Description</th>
+                            <th>Subtotal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>{{$d->nama}}</td>
+                            <td>455-981-221</td>
+                            <td>El snort testosterone trophy driving gloves handsome</td>
+                            <td>$64.50</td>
                         </tr>
                         <tr>
-                            <td>Uang Sebanyak :</td>
-                            <td>{{$data_pelanggan->nominal}}</td>
+                            <td>1</td>
+                            <td>Need for Speed IV</td>
+                            <td>247-925-726</td>
+                            <td>Wes Anderson umami biodiesel</td>
+                            <td>$50.00</td>
                         </tr>
                         <tr>
-                            <td>Guna Membayar :</td>
-                            <td>{{$data_pelanggan->keterangan}}</td>
+                            <td>1</td>
+                            <td>Monsters DVD</td>
+                            <td>735-845-642</td>
+                            <td>Terry Richardson helvetica tousled street art master</td>
+                            <td>$10.70</td>
                         </tr>
                         <tr>
-                            <td>Date and time :</td>
-                            <td>{{$data_pelanggan->time}}</td>
+                            <td>1</td>
+                            <td>Grown Ups Blue Ray</td>
+                            <td>422-568-642</td>
+                            <td>Tousled lomo letterpress</td>
+                            <td>$25.99</td>
                         </tr>
-                        <tr>
-                            <td>Pilih :</td>
-                            <td>{{$data_pelanggan->pilihan}}</td>
-                        </tr>
+                    </tbody>
+                <?php endforeach ?>
             </table>
         </div>
         <!-- /.col -->
@@ -86,7 +107,7 @@
         </div>
         <!-- /.col -->
         <div class="col-3">
-            <p>Salatiga, {{$data_pelanggan->time}}</p>
+            <p>Salatiga, 2/22/2014</p>
             <br>
             <br>
             (................................)
