@@ -57,26 +57,26 @@
     <div class="row">
         <div class="col-12 table-responsive mt-5">
             <table class="table table-striped">
-                        <tr>
-                            <td>Telah Terima dari :</td>
-                            <td>{{$data_pelanggan->nama}}</td>
-                        </tr>
-                        <tr>
-                            <td>Uang Sebanyak :</td>
-                            <td>{{$data_pelanggan->nominal}}</td>
-                        </tr>
-                        <tr>
-                            <td>Guna Membayar :</td>
-                            <td>{{$data_pelanggan->keterangan}}</td>
-                        </tr>
-                        <tr>
-                            <td>Date and time :</td>
-                            <td>{{$data_pelanggan->time}}</td>
-                        </tr>
-                        <tr>
-                            <td>Pilih :</td>
-                            <td>{{$data_pelanggan->pilihan}}</td>
-                        </tr>
+                <tr>
+                    <td>Telah Terima dari :</td>
+                    <td>{{$data_pelanggan->nama}}</td>
+                </tr>
+                <tr>
+                    <td>Uang Sebanyak :</td>
+                    <td>{{$data_pelanggan->nominal}}</td>
+                </tr>
+                <tr>
+                    <td>Guna Membayar :</td>
+                    <td>{{$data_pelanggan->keterangan}}</td>
+                </tr>
+                <tr>
+                    <td>Date and time :</td>
+                    <td>{{$data_pelanggan->time}}</td>
+                </tr>
+                <tr>
+                    <td>Pilih :</td>
+                    <td>{{$data_pelanggan->pilihan}}</td>
+                </tr>
             </table>
         </div>
         <!-- /.col -->
