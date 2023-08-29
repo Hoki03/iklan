@@ -191,6 +191,7 @@
                                     <table id="table_pelanggan" class="table table-head-fixed text-nowrap">
                                         <thead>
                                             <tr>
+                                                <th></th>
                                                 <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Nominal</th>
@@ -203,6 +204,7 @@
                                         <tbody>
                                             <?php foreach ($data_pelanggan as $d) : ?>
                                                 <tr>
+                                                    <td><input type="checkbox" name="id[]" value="" disabled></td>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
@@ -300,6 +302,7 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
     <!-- search table -->
+
     <script>
         function myFunction() {
             var input, filter, table, tr, td, i, txtValue;
@@ -321,14 +324,7 @@
         }
     </script>
 
-    <script>
-        //Date and time picker
-        $('#reservationdatetime').datetimepicker({
-            icons: {
-                time: 'far fa-clock'
-            }
-        });
-    </script>
+
 </body>
 
 </html>
