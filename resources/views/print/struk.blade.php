@@ -26,12 +26,12 @@
                 </div>
             </div> -->
     <!-- info row -->
-    <div class="row invoice-info">
+    <div class="row invoice-info mb-5">
         <div class="col-sm-2 invoice-col">
             <img src="{{asset('image/Lambang_Kota_Salatiga.png')}}" style="widht: 130px; height: 230px;">
         </div>
         <!-- /.col -->
-        <div class="col-sm-8 invoice-col items-center justufy-center">
+        <div class="col-sm-8 invoice-col">
             <center>
                 <h2>DINAS KOMUNIKASI DAN INFORMATIKA</h2><br>
                 <h1><b><u>KOTA SALATIGA</u></b></h1><br>
@@ -43,8 +43,12 @@
         </div>
         <!-- /.col -->
         <div class="col-sm-2 invoice-col">
+            <center>
             <h2><b>KUITANSI</b></h2><br>
-            <b>No. {{$data_pelanggan->id}}</b>
+            <span class="border border-4" style="width: 150px;">
+            <b >No. {{$data_pelanggan->id}}</b>
+            </span>
+            </center>
         </div>
         <!-- /.col -->
     </div>
@@ -52,7 +56,7 @@
 
     <!-- Table row -->
     <div class="row">
-        <div class="col-12 table-responsive">
+        <div class="col-12 table-responsive mt-5">
             <table class="table table-striped">
                         <tr>
                             <td>Telah Terima dari :</td>
