@@ -1,0 +1,9 @@
+.logo, .logo * {
+    box-sizing: border-box;
+    }
+.logo {
+   flex-shrink: 0;
+    position: relative;
+    overflow: visible;
+   }
+
