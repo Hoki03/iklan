@@ -17,6 +17,9 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', [LoginController::class, 'login'])->name('login');
+Route::get('login2',function(){
+    return view('login/login2');
+});
 Route::post('/login_proses', [LoginController::class, 'login_proses'])->name('login_proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('forgot', function () {
