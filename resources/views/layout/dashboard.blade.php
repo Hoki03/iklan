@@ -108,6 +108,14 @@
                             </a>
                         </li>
                         <li class="nav-item">
+                            <a href="dashboard2" class="nav-link">
+                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <p>
+                                    Dashboard 2
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>

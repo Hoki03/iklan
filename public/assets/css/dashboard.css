@@ -1,9 +1,17 @@
-.logo, .logo * {
-    box-sizing: border-box;
-    }
-.logo {
-   flex-shrink: 0;
+.navbar-header {
+    left: 50px;
     position: relative;
-    overflow: visible;
-   }
+}
 
+.nav{
+    left:50px;
+    position: relative;
+}
+
+.logo{
+    position: absolute;
+    left: 15px;
+    top: 7px;
+    overflow: visible;
+
+}

@@ -17,9 +17,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', [LoginController::class, 'login'])->name('login');
-Route::get('login2',function(){
-    return view('login/login2');
-});
+
 Route::post('/login_proses', [LoginController::class, 'login_proses'])->name('login_proses');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('forgot', function () {
@@ -33,6 +31,9 @@ Route::get('recover', function () {
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
 
     Route::get('dashboard', [HomeController::class, 'hitung_pelanggan'])->name('dashboard');
+    Route::get('dashboard2', function () {
+        return view('layout/dashboard2');
+    });
 
     Route::get('form', function () {
         return view('layout/form');
