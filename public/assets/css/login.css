@@ -1,8 +1,10 @@
+.layer-1 {
+    position: absolute;
+    left: 15px;
+    top: 16px;
+    overflow: visible;
+}
 
-
-    .layer-1 {
-        position: absolute;
-         left: 15px;
-        top: 16px;
-         overflow: visible;
-        }
+.flex{
+    background: #fff;
+}
