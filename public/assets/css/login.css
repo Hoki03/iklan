@@ -1,21 +1,4 @@
-.login {
-    background: #ffffff;
-     width: 1440px;
-     height: 1024px;
-     position: relative;
-     overflow: hidden;
-    }
- 
- .group-2 {
-    position: absolute;
-     inset: 0;
-    }
- 
- .layer-2 {
-    width: 32px;
-     height: 32px;
-     position: static;
-    }
+
 
     .layer-1 {
         position: absolute;
