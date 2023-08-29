@@ -7,7 +7,7 @@
   <title>Login</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="{{asset('windmil/public/assets/css/tailwind.output.css')}}" />
-  <link rel="stylesheet" type="text/css" href="{{asset('/css/login.css')}}" />
+  <link rel="stylesheet" type="text/css" href="{{asset('assets/css/login.css')}}" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer>
   </script>
