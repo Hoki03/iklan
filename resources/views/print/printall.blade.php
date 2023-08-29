@@ -27,7 +27,7 @@
             </div> -->
     <!-- info row -->
     <div class="row invoice-info">
-        <div class="col-sm-9 invoice-col items-center justufy-center">
+        <div class="col-sm-9 invoice-col items-center justufy-center mb-5">
             <center>
                 <h2>DINAS KOMUNIKASI DAN INFORMATIKA</h2><br>
                 <h1><b><u>KOTA SALATIGA</u></b></h1><br>
@@ -46,7 +46,7 @@
     </div>
     <!-- /.row -->
 
-    <div class="card-body table-responsive p-0">
+    <div class="card-body table-responsive p-0 mt-5 mb-5">
         <table id="table_pelanggan" class="table table-head-fixed text-nowrap">
             <thead>
                 <tr>
@@ -56,7 +56,6 @@
                     <th>Keterangan</th>
                     <th>Waktu</th>
                     <th>Pilihan</th>
-                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -79,7 +78,7 @@
         <div class="col-9">
         </div>
         <!-- /.col -->
-        <div class="col-3">
+        <div class="col-3 mt-5">
             <p>Salatiga, 2/22/2014</p>
             <br>
             <br>
