@@ -300,6 +300,7 @@
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
     <!-- search table -->
+
     <script>
         function myFunction() {
             var input, filter, table, tr, td, i, txtValue;
@@ -321,14 +322,7 @@
         }
     </script>
 
-    <script>
-        //Date and time picker
-        $('#reservationdatetime').datetimepicker({
-            icons: {
-                time: 'far fa-clock'
-            }
-        });
-    </script>
+
 </body>
 
 </html>
