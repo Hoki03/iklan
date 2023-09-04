@@ -40,7 +40,7 @@
                 Welcome.
               </h1>
               <label class="block text-sm">
-                <input value="672020025@student.uksw.edu" name="email" class="block w-full mt-1 text-sm dark:border-gray-600 white:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="example@student.uksw.edu" />
+                <input name="email" class="block w-full mt-1 text-sm dark:border-gray-600 white:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="example@student.uksw.edu" />
               </label>
               @error('email')
               <small>*{{$message}}</small>
