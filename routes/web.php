@@ -28,14 +28,14 @@ Route::get('recover', function () {
     return view('login/recover');
 });
 
-Route::group(['prefix' => 'operator', 'middleware' => ['auth'], 'as' => 'operator.'], function () {
-    Route::get('dashboard2', function () {
-        return view('layout/dashboard2');
-    });
+Route::group(['prefix' => 'operator', 'middleware' => ['auth', 'admin:operator'], 'as' => 'operator.'], function () {
+    Route::get('op_beranda', [HomeController::class, 'op_beranda'])->name('op_beranda');
 });
-Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
 
-    Route::get('dashboard', [HomeController::class, 'hitung_pelanggan'])->name('dashboard');
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:admin'], 'as' => 'admin.'], function () {
+
+    Route::get('adm_beranda', [HomeController::class, 'adm_beranda'])->name('adm_beranda');
+    Route::get('dashboard', [HomeController::class, 'dashboard']);
     Route::get('dashboard2', function () {
         return view('layout/dashboard2');
     });

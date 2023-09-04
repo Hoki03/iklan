@@ -14,6 +14,14 @@ class HomeController extends Controller
     {
         return view('layout/dashboard');
     }
+    public function op_beranda()
+    {
+        return view('layout/operator/beranda');
+    }
+    public function adm_beranda()
+    {
+        return view('layout/operator/beranda');
+    }
 
     public function user()
     {
@@ -84,7 +92,7 @@ class HomeController extends Controller
     public function transaksi()
     {
         $data_transaksi = Transaksi::get();
-        return view('layout/table_transaksi', compact('data_transaksi'));
+        return view('layout/operator/beranda', compact('data_transaksi'));
     }
 
     public function form(Request $request)

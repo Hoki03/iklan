@@ -24,12 +24,14 @@ class LoginController extends Controller
             'password'  => $request->password,
         ];
 
-        if (Auth::attempt($data_user) && Auth::user()->level == "admin") {
-            return redirect()->route('admin.dashboard');
-        } else if (Auth::attempt($data_user) && Auth::user()->level == "operator") {
-            return redirect()->route('operator.dashboard2');
-        } else {
-            return redirect()->route('login')->with('failed', 'Email atau Password Salah');
+        if (Auth::attempt($data_user)) {
+            if (Auth::user()->level == 'admin') {
+                return redirect()->route('admin.adm_beranda');
+            } else if (Auth::user()->level == 'operator') {
+                return redirect()->route('operator.op_beranda');
+            } else {
+                return redirect()->route('login')->with('failed', 'Email atau Password Salah');
+            }
         }
     }
 
