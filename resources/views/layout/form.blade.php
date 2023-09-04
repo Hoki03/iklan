@@ -200,6 +200,9 @@
                                             <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
+                                            <div>
+                                            {{ date('l, d F Y')}}
+                                            </div>
                                         </div>
                                         @error('tanggal')
                                         <small>*{{$message}}</small>
