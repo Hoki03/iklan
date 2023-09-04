@@ -86,10 +86,11 @@
     <div class="row">
         <!-- accepted payments column -->
         <div class="col-9">
+            Terbilang Rp. {{$data_pelanggan->nominal}}
         </div>
         <!-- /.col -->
         <div class="col-3">
-            <p>Salatiga, 2/22/2014</p>
+            <p>Salatiga, {{$today = Carbon::today();}}</p>
             <br>
             <br>
             (................................)
