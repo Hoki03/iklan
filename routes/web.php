@@ -28,6 +28,9 @@ Route::get('recover', function () {
     return view('login/recover');
 });
 
+Route::group(['prefix' => 'operator', 'middleware' => ['auth'], 'as' => 'operator.'], function () {
+    
+});
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
 
     Route::get('dashboard', [HomeController::class, 'hitung_pelanggan'])->name('dashboard');

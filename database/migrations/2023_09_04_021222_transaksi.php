@@ -13,10 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('transaksi', function (Blueprint $table) {
+        Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->double('nominal');
+            $table->float('nominal');
             $table->text('keterangan')->nullable();
             $table->date('tanggal');
             $table->tinyInteger('jenis_id');
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transaksi');
+        Schema::dropIfExists('transaksis');
     }
 };

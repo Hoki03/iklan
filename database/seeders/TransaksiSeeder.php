@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Transaksi;
+use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,12 +16,12 @@ class TransaksiSeeder extends Seeder
      */
     public function run()
     {
-        Transaksi::create([
+        Transaksi::Create([
             'nama'          => 'Hoki',
             'nominal'       => '1000000',
             'keterangan'    => 'Oke',
-            'tanggal'          => '08/23/2023',
-            'jenis_id'       => 'Radio',
+            'tanggal'       => '2023-08-23',
+            'jenis_id'      => '1',
         ]);
     }
 }
