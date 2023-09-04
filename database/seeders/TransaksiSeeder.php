@@ -6,6 +6,7 @@ use App\Models\Transaksi;
 use GuzzleHttp\Promise\Create;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Carbon;
 
 class TransaksiSeeder extends Seeder
 {

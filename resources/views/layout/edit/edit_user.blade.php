@@ -171,20 +171,20 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('admin.update_user',['id'=>$data_user->id])}}" method="POST">
+                        <form action="{{route('admin.update_users',['id'=>$data_users->id])}}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="nama1">Nama:</label>
-                                    <input name="name" type="name" class="form-control" id="nama1" placeholder="Masukkan nama" value="{{$data_user->name}}">
+                                    <input name="name" type="name" class="form-control" id="nama1" placeholder="Masukkan nama" value="{{$data_users->name}}">
                                     @error('name')
                                     <small>*{{$message}}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="email1">Email:</label>
-                                    <input type="email" class="form-control" id="email1" name="email" placeholder="Masukkan email" value="{{$data_user->email}}">
+                                    <input type="email" class="form-control" id="email1" name="email" placeholder="Masukkan email" value="{{$data_users->email}}">
                                     @error('email')
                                     <small>*{{$message}}</small>
                                     @enderror
