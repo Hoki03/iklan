@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Pelanggan;
+use App\Models\Transaksi;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class PelangganSeeder extends Seeder
+class TransaksiSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,7 +15,7 @@ class PelangganSeeder extends Seeder
      */
     public function run()
     {
-        Pelanggan::create([
+        Transaksi::create([
             'nama'          => 'Hoki',
             'nominal'       => '1000000',
             'keterangan'    => 'Oke',
