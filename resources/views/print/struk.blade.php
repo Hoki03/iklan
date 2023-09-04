@@ -46,7 +46,7 @@
             <center>
                 <h2><b>KUITANSI</b></h2><br>
                 <span class="border border-4" style="width: 150px;">
-                    <b>No. {{$data_pelanggan->id}}</b>
+                    <b>No. {{$data_transaksi->id}}</b>
                 </span>
         </div>
         <!-- /.col -->
@@ -59,23 +59,23 @@
             <table class="table table-striped">
                 <tr>
                     <td>Telah Terima dari :</td>
-                    <td>{{$data_pelanggan->nama}}</td>
+                    <td>{{$data_transaksi->nama}}</td>
                 </tr>
                 <tr>
                     <td>Uang Sebanyak :</td>
-                    <td>{{$data_pelanggan->nominal}}</td>
+                    <td>{{$data_transaksi->nominal}}</td>
                 </tr>
                 <tr>
                     <td>Guna Membayar :</td>
-                    <td>{{$data_pelanggan->keterangan}}</td>
+                    <td>{{$data_transaksi->keterangan}}</td>
                 </tr>
                 <tr>
                     <td>Date and time :</td>
-                    <td>{{$data_pelanggan->time}}</td>
+                    <td>{{$data_transaksi->time}}</td>
                 </tr>
                 <tr>
                     <td>Pilih :</td>
-                    <td>{{$data_pelanggan->pilihan}}</td>
+                    <td>{{$data_transaksi->pilihan}}</td>
                 </tr>
             </table>
         </div>
@@ -86,7 +86,7 @@
     <div class="row">
         <!-- accepted payments column -->
         <div class="col-9">
-            Terbilang Rp. {{$data_pelanggan->nominal}}
+            Terbilang Rp. {{$data_transaksi->nominal}}
         </div>
         <!-- /.col -->
         <div class="col-3">
