@@ -19,8 +19,8 @@ class PelangganSeeder extends Seeder
             'nama'          => 'Hoki',
             'nominal'       => '1000000',
             'keterangan'    => 'Oke',
-            'time'          => '08/23/2023 12:55 PM',
-            'pilihan'       => 'Radio',
+            'tanggal'          => '08/23/2023',
+            'jenis_id'       => 'Radio',
         ]);
     }
 }

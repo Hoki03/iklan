@@ -16,10 +16,10 @@ return new class extends Migration
         Schema::create('pelanggans', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->integer('nominal');
+            $table->integer('nominal')->float();
             $table->string('keterangan')->nullable();
-            $table->string('time');
-            $table->string('pilihan');
+            $table->string('tanggal')->date();
+            $table->string('jenis_id');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pelanggans');
+        Schema::dropIfExists('transaksi');
     }
 };
