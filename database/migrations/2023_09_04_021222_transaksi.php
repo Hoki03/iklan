@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->string('nama');
-            $table->float('nominal');
+            $table->double('nominal');
             $table->text('keterangan')->nullable();
             $table->date('tanggal');
             $table->tinyInteger('jenis_id');

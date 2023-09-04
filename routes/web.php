@@ -29,7 +29,9 @@ Route::get('recover', function () {
 });
 
 Route::group(['prefix' => 'operator', 'middleware' => ['auth'], 'as' => 'operator.'], function () {
-    
+    Route::get('dashboard2', function () {
+        return view('layout/dashboard2');
+    });
 });
 Route::group(['prefix' => 'admin', 'middleware' => ['auth'], 'as' => 'admin.'], function () {
 

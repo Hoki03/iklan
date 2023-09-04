@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Pelanggan;
+use App\Models\Transaksi;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
@@ -81,10 +81,10 @@ class HomeController extends Controller
         return redirect()->route('admin.data_user');
     }
 
-    public function pelanggan()
+    public function transaksi()
     {
-        $data_pelanggan = Pelanggan::get();
-        return view('layout/table_pelanggan', compact('data_pelanggan'));
+        $data_transaksi = Transaksi::get();
+        return view('layout/table_transaksi', compact('data_transaksi'));
     }
 
     public function form(Request $request)
@@ -98,24 +98,24 @@ class HomeController extends Controller
         ]);
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
-        $data_pelanggan['nama']     = $request->nama;
-        $data_pelanggan['nominal']  = $request->nominal;
-        $data_pelanggan['keterangan']  = $request->keterangan;
-        $data_pelanggan['time']  = $request->time;
-        $data_pelanggan['pilihan']  = $request->pilihan;
+        $data_transaksi['nama']     = $request->nama;
+        $data_transaksi['nominal']  = $request->nominal;
+        $data_transaksi['keterangan']  = $request->keterangan;
+        $data_transaksi['time']  = $request->time;
+        $data_transaksi['pilihan']  = $request->pilihan;
 
-        Pelanggan::create($data_pelanggan);
+        Transaksi::create($data_transaksi);
 
         return redirect()->route('admin.form');
     }
 
-    public function edit_pelanggan(Request $request, $id)
+    public function edit_transaksi(Request $request, $id)
     {
-        $data_pelanggan = Pelanggan::find($id);
-        return view('layout/edit/edit_pelanggan', compact('data_pelanggan'));
+        $data_transaksi = Transaksi::find($id);
+        return view('layout/edit/edit_transaksi', compact('data_transaksi'));
     }
 
-    public function update_pelanggan(Request $request, $id)
+    public function update_transaksi(Request $request, $id)
     {
         $validator = Validator::make($request->all(), [
             'nama'  =>  'required',
@@ -126,49 +126,49 @@ class HomeController extends Controller
         ]);
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
-        $data_pelanggan['nama']     = $request->nama;
-        $data_pelanggan['nominal']  = $request->nominal;
-        $data_pelanggan['pilihan']  = $request->pilihan;
+        $data_transaksi['nama']     = $request->nama;
+        $data_transaksi['nominal']  = $request->nominal;
+        $data_transaksi['pilihan']  = $request->pilihan;
         if ($request->keterangan) {
-            $data_pelanggan['keterangan']  = $request->keterangan;
+            $data_transaksi['keterangan']  = $request->keterangan;
         }
         if ($request->time) {
-            $data_pelanggan['time']  = $request->time;
+            $data_transaksi['time']  = $request->time;
         }
 
-        Pelanggan::whereId($id)->update($data_pelanggan);
+        Transaksi::whereId($id)->update($data_transaksi);
 
         return redirect()->route('admin.form');
     }
 
 
-    public function hapus_pelanggan(Request $request, $id)
+    public function hapus_transaksi(Request $request, $id)
     {
-        $data_pelanggan = Pelanggan::find($id);
-        if ($data_pelanggan) {
-            $data_pelanggan->delete();
+        $data_transaksi = Transaksi::find($id);
+        if ($data_transaksi) {
+            $data_transaksi->delete();
         }
         return redirect()->route('admin.form');
     }
 
-    public function hitung_pelanggan()
+    public function hitung_transaksi()
     {
-        $data_pelanggan = Pelanggan::count();
+        $data_transaksi = Transaksi::count();
         $data_user = User::count();
-        return view('layout/dashboard', compact('data_pelanggan', 'data_user'));
+        return view('layout/dashboard', compact('data_transaksi', 'data_user'));
     }
 
     public function struk(Request $request, $id)
     {
-        $data_pelanggan = Pelanggan::find($id);
-        $pelanggan = Pelanggan::get();
+        $data_transaksi = Transaksi::find($id);
+        $transaksi = Transaksi::get();
 
-        return view('print/struk', compact('data_pelanggan', 'pelanggan'));
+        return view('print/struk', compact('data_transaksi', 'transaksi'));
     }
 
     public function printall()
     {
-        $data_pelanggan = Pelanggan::get();
-        return view('print/printall', compact('data_pelanggan'));
+        $data_transaksi = Transaksi::get();
+        return view('print/printall', compact('data_transaksi'));
     }
 }
