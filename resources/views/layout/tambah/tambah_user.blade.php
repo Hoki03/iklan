@@ -171,7 +171,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('admin.tambah_user')}}" method="POST">
+                        <form action="{{route('admin.tambah_users')}}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">

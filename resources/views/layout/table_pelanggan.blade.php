@@ -196,23 +196,23 @@
                                                 <th>Nama</th>
                                                 <th>Nominal</th>
                                                 <th>Keterangan</th>
-                                                <th>Waktu</th>
-                                                <th>Pilihan</th>
+                                                <th>Tanggal</th>
+                                                <th>Jenis</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php foreach ($data_pelanggan as $d) : ?>
+                                            <?php foreach ($data_transaksi as $d) : ?>
                                                 <tr>
                                                     <td><input type="checkbox" name="id[]" value="" disabled></td>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                                     <td><?= $d['keterangan']; ?></td>
-                                                    <td><?= $d['time']; ?></td>
-                                                    <td><?= $d['pilihan']; ?></td>
+                                                    <td><?= $d['tanggal']; ?></td>
+                                                    <td><?= $d['jenis_id']; ?></td>
                                                     <td>
-                                                        <a href="{{route('admin.edit_pelanggan',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
+                                                        <a href="{{route('admin.edit_transaksi',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
                                                         <a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                                                     </td>

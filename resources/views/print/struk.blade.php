@@ -12,8 +12,8 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css')}}">
+    use Carbon\carbon;
 </head>
-
 <body>
     <!-- <div class="wrapper">
         <section class="invoice">
@@ -71,11 +71,11 @@
                 </tr>
                 <tr>
                     <td>Date and time :</td>
-                    <td>{{$data_transaksi->time}}</td>
+                    <td>{{$data_transaksi->tanggal}}</td>
                 </tr>
                 <tr>
                     <td>Pilih :</td>
-                    <td>{{$data_transaksi->pilihan}}</td>
+                    <td>{{$data_transaksi->jenis_id}}</td>
                 </tr>
             </table>
         </div>
@@ -86,11 +86,11 @@
     <div class="row">
         <!-- accepted payments column -->
         <div class="col-9">
-            Terbilang Rp. {{$data_transaksi->nominal}}
+            Terbilang     Rp. {{$data_transaksi->nominal}}
         </div>
         <!-- /.col -->
         <div class="col-3">
-            <p>Salatiga, {{$today = Carbon::today();}}</p>
+            <p>Salatiga, $today = Carbon::today();</p>
             <br>
             <br>
             (................................)

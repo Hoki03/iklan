@@ -129,7 +129,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_pelanggan" class="nav-link">
+                                    <a href="data_transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Form</p>
                                     </a>
@@ -170,20 +170,20 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form action="{{route('admin.update_pelanggan',['id'=>$data_pelanggan->id])}}" method="POST">
+                        <form action="{{route('admin.update_transaksi',['id'=>$data_transaksi->id])}}" method="POST">
                             @csrf
                             @method('PUT')
                             <div class="card-body">
                                 <div class="form-group">
                                     <label for="nama1">Telah Terima dari:</label>
-                                    <input value="{{$data_pelanggan->nama}}" name="nama" type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
+                                    <input value="{{$data_transaksi->nama}}" name="nama" type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
                                     @error('nama')
                                     <small>*{{$message}}</small>
                                     @enderror
                                 </div>
                                 <div class="form-group">
                                     <label for="uang1">Uang Sebanyak:</label>
-                                    <input value="{{$data_pelanggan->nominal}}" type="nominal" class="form-control" id="uang1" name="nominal" placeholder="Maukkan nominal uang">
+                                    <input value="{{$data_transaksi->nominal}}" type="nominal" class="form-control" id="uang1" name="nominal" placeholder="Maukkan nominal uang">
                                     @error('nominal')
                                     <small>*{{$message}}</small>
                                     @enderror
@@ -191,26 +191,26 @@
                                 <div class="form-group">
                                     <label for="ket">Guna Membayar:</label>
                                     <div class="form-group">
-                                        <textarea type="keterangan" name="keterangan" class="form-control" rows="3"><?php echo $data_pelanggan->keterangan ?></textarea>
+                                        <textarea type="keterangan" name="keterangan" class="form-control" rows="3"><?php echo $data_transaksi->keterangan ?></textarea>
                                     </div>
                                     <!-- Date and time -->
                                     <div class="form-group">
                                         <label>Date and time:</label>
                                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                            <input value="{{$data_pelanggan->time}}" type="text" name="time" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
+                                            <input value="{{$data_transaksi->tanggal}}" type="text" name="tanggal" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
                                             <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </div>
-                                        @error('time')
+                                        @error('tanggal')
                                         <small>*{{$message}}</small>
                                         @enderror
                                     </div>
                                     <div class="form-group">
                                         <label>Pilih</label>
-                                        <select class="form-control" type="pilihan" name="pilihan">
-                                            <option value="Radio" <?php if ($data_pelanggan->pilihan == 'Radio') echo 'selected="selected"'; ?>>Radio</option>
-                                            <option value="Videotron" <?php if ($data_pelanggan->pilihan == 'Videotron') echo 'selected="selected"'; ?>>Videotron</option>
+                                        <select class="form-control" type="jenis" name="jenis">
+                                            <option value="Radio" <?php if ($data_transaksi->pilihan == 'Radio') echo 'selected="selected"'; ?>>Radio</option>
+                                            <option value="Videotron" <?php if ($data_transaksi->pilihan == 'Videotron') echo 'selected="selected"'; ?>>Videotron</option>
                                         </select>
                                     </div>
                                 </div>
