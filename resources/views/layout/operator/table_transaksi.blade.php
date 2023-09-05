@@ -119,13 +119,13 @@
                                 <li class="nav-item">
                                     <a href="form" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Tambah Transaksi</p>
+                                        <p>Form</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="data_transaksi" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Transaksi</p>
+                                        <p>Daftar Form</p>
                                     </a>
                                 </li>
                             </ul>
@@ -146,6 +146,45 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Daftar Form</h1>
+                            <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
+                            <select size="1" id="row-1-office" name="row-1-office">
+                                <option value="01" selected="selected">
+                                    januari
+                                </option>
+                                <option value="02">
+                                    Februari
+                                </option>
+                                <option value="03">
+                                    Maret
+                                </option>
+                                <option value="04">
+                                    April
+                                </option>
+                                <option value="05">
+                                    Mei
+                                </option>
+                                <option value="06">
+                                    Juni
+                                </option>
+                                <option value="07">
+                                    Juli
+                                </option>
+                                <option value="08">
+                                    Agustus
+                                </option>
+                                <option value="09">
+                                    September
+                                </option>
+                                <option value="10">
+                                    Oktober
+                                </option>
+                                <option value="11">
+                                    November
+                                </option>
+                                <option value="12">
+                                    Desember
+                                </option>
+                            </select>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -197,17 +236,50 @@
                                         <tbody>
                                             <?php foreach ($data_transaksi as $d) : ?>
                                                 <tr>
-                                                    <td><input type="checkbox" name="id[]" value="" disabled></td>
+                                                    <td><input type="checkbox" name="id[]" value=""></td>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                                     <td><?= $d['keterangan']; ?></td>
-                                                    <td><?= $d['tanggal']; ?></td>
-                                                    <td><?= $d['jenis_id']; ?></td>
+                                                    <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+
+                                                    <td><?php if ($d['jenis_id'] == 1) {
+                                                            echo "Radio";
+                                                        } else {
+                                                            echo "Videotron";
+                                                        }
+                                                        ?></td>
                                                     <td>
+                                                        <a href="{{route('admin.edit_transaksi',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
+                                                        <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
                                                         <a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                                                     </td>
                                                 </tr>
+                                                <div class="modal fade" id="modal-hapus{{$d->id}}">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Konfirmasi Hapus Data</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Apakah kamu ingin menghapus data ini? (<b>{{$d->nama}}</b></b>)</p>
+                                                            </div>
+                                                            <div class="modal-footer content-between">
+                                                                <form action="{{route('admin.hapus_transaksi',['id'=>$d->id])}}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
                                                 <!-- /.modal -->
                                             <?php endforeach; ?>
                                         </tbody>
