@@ -20,7 +20,7 @@ class HomeController extends Controller
     }
     public function adm_beranda()
     {
-        return view('layout/operator/beranda');
+        return view('layout/admin/beranda');
     }
 
     public function user()
