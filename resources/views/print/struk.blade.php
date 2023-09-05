@@ -75,7 +75,12 @@
                 </tr>
                 <tr>
                     <td>Jenis :</td>
-                    <td>{{$data_transaksi->jenis_id}}</td>
+                    <td><?php if ($d['jenis_id'] == 1) {
+                                                            echo "Radio";
+                                                        } else {
+                                                            echo "Videotron";
+                                                        }
+                                                    ?></td>
                 </tr>
             </table>
         </div>
