@@ -4,14 +4,14 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iklan | Beranda</title>
+    <title>Iklan | Form</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css')}}">
     <!-- Tempusdominus Bootstrap 4 -->
     <link rel="stylesheet" href="{{asset('lte/plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css')}}">
     <!-- iCheck -->
@@ -44,7 +44,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="Beranda" class="nav-link">Home</a>
+                    <a href="dashboard" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -53,7 +53,7 @@
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="fullscreen" role="button">
+                    <a class="nav-link" data-widget="fullscreen" href="#" role="button">
                         <i class="fas fa-expand-arrows-alt"></i>
                     </a>
                 </li>
@@ -64,7 +64,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="Beranda" class="brand-link">
+            <a href="dashboard" class="brand-link">
                 <center>
                     <h3 class="brand-text font-weight-light">Iklan</h3>
                 </center>
@@ -100,23 +100,15 @@
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="Beranda" class="nav-link active">
+                            <a href="dashboard" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Beranda
+                                    Dashboard
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="Beranda2" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Beranda 2
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
                                     Beranda
@@ -125,9 +117,9 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="form" class="nav-link">
+                                    <a href="form" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form</p>
+                                        <p>transaksi</p>
                                     </a>
                                 </li>
                             </ul>
@@ -147,12 +139,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Beranda</h1>
+                            <h1 class="m-0">transaksi</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="Beranda">Home</a></li>
-                                <li class="breadcrumb-item active">Beranda</li>
+                                <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
+                                <li class="breadcrumb-item active">transaksi</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -163,65 +155,60 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-
-                                    <p>New Orders</p>
+                    <div class="card card-primary">
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form action="{{route('admin.tambah_transaksi')}}" method="POST">
+                            @csrf
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="nama1">Telah Terima dari:</label>
+                                    <input name="nama" type="nama" class="form-control" id="nama1" placeholder="Masukkan nama">
+                                    @error('nama')
+                                    <small>*{{$message}}</small>
+                                    @enderror
                                 </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
+                                <div class="form-group">
+                                    <label for="uang1">Uang Sebanyak:</label>
+                                    <input type="nominal" class="form-control" id="uang1" name="nominal" placeholder="Maukkan nominal uang">
+                                    @error('nominal')
+                                    <small>*{{$message}}</small>
+                                    @enderror
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <div class="form-group">
+                                    <label for="ket">Guna Membayar:</label>
+                                    <div class="form-group">
+                                        <textarea type="keterangan" name="keterangan" class="form-control" rows="3" placeholder="Enter ..."></textarea>
+                                    </div>
+                                    <!-- Date and time -->
+                                    <div class="form-group">
+                                        <label>Date and time:</label>
+                                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
+                                            <input type="text" name="tanggal" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
+                                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                                <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                                            </div>
+                                            <div>
+                                            {{ date('l, d F Y')}}
+                                            </div>
+                                        </div>
+                                        @error('tanggal')
+                                        <small>*{{$message}}</small>
+                                        @enderror
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Pilih</label>
+                                        <select class="form-control" type="jenis" name="jenis">
+                                            <option>Radio</option>
+                                            <option>Videotron</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                    <p>Bounce Rate</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Submit</button>
                             </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-
-                                    <p>User Registrations</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>65</h3>
-
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
+                        </form>
                     </div>
                 </div>
             </section>
@@ -272,10 +259,9 @@
     <script src="{{asset('lte/dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
-    <!-- AdminLTE Beranda demo (This is only for demo purposes) -->
-    <script src="{{asset('lte/dist/js/pages/Beranda.js')}}"></script>
-    <!-- Ionicons -->
-    <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
+
     <script>
         //Date and time picker
         $('#reservationdatetime').datetimepicker({
