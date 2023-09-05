@@ -64,6 +64,7 @@
                 <tr>
                     <td>Uang Sebanyak :</td>
                     <td>{{$data_transaksi->nominal}}</td>
+                    <div>{{ nominal('Terbilang')}}</div>
                 </tr>
                 <tr>
                     <td>Guna Membayar :</td>
@@ -87,11 +88,10 @@
         <!-- accepted payments column -->
         <div class="col-9">
             Terbilang     Rp. {{$data_transaksi->nominal}}
-            {{ nominal('$satuan';'$huruf')}}
         </div>
         <!-- /.col -->
         <div class="col-3">
-            <p>Salatiga,  {{ tanggal('d F Y')}}</p>
+            <p>Salatiga,  {{ date('d F Y')}}</p>
             <div></div>
             <br>
             <br>
@@ -109,7 +109,7 @@
     <script>
         window.addEventListener("load", window.print());
     </script>
-    <?php
+<?php
 
 function Terbilang($satuan)
 {
@@ -135,33 +135,33 @@ echo "Maaf Tidak Dapat di Prose Karena Jumlah Uang Terlalu Besar ";
 }
 
 // Untuk membuat tanggal dalam format indonesia
-$angkaBln = date("n");
-switch ($angkaBln) {
-    case 1 : $namaBln = "Januari";
-        break;
-    case 2 : $namaBln = "Februari";
-        break;
-    case 3 : $namaBln = "Maret";
-        break;
-    case 4 : $namaBln = "April";
-        break;
-    case 5 : $namaBln = "Mei";
-        break;
-    case 6 : $namaBln = "Juni";
-        break;
-    case 7 : $namaBln = "Juli";
-        break;
-    case 8 : $namaBln = "Agustus";
-        break;
-    case 9 : $namaBln = "September";
-        break;
-    case 10: $namaBln = "Oktober";
-        break;
-    case 11: $namaBln = "Nopember";
-        break;
-    case 12: $namaBln = "Desember";
-        break;
-}
+// $angkaBln = date("n");
+// switch ($angkaBln) {
+//     case 1 : $namaBln = "Januari";
+//         break;
+//     case 2 : $namaBln = "Februari";
+//         break;
+//     case 3 : $namaBln = "Maret";
+//         break;
+//     case 4 : $namaBln = "April";
+//         break;
+//     case 5 : $namaBln = "Mei";
+//         break;
+//     case 6 : $namaBln = "Juni";
+//         break;
+//     case 7 : $namaBln = "Juli";
+//         break;
+//     case 8 : $namaBln = "Agustus";
+//         break;
+//     case 9 : $namaBln = "September";
+//         break;
+//     case 10: $namaBln = "Oktober";
+//         break;
+//     case 11: $namaBln = "November";
+//         break;
+//     case 12: $namaBln = "Desember";
+//         break;
+//}
 ?>
 </body>
 
