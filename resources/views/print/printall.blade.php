@@ -66,7 +66,12 @@
                         <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                         <td><?= $d['keterangan']; ?></td>
                         <td><?= date('d F Y', strtotime($d['tanggal'])); ?></td>
-                        <td><?= $d['jenis']; ?></td>
+                        <td><?php if ($d['jenis_id'] == 1) {
+                                                            echo "Radio";
+                                                        } else {
+                                                            echo "Videotron";
+                                                        }
+                        ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>

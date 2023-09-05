@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iklan | Daftar Form</title>
+    <title>Iklan | Data Transaksi</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -119,13 +119,13 @@
                                 <li class="nav-item">
                                     <a href="form" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form</p>
+                                        <p>Transaksi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="data_transaksi" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Daftar Form</p>
+                                        <p>Data Transaksi</p>
                                     </a>
                                 </li>
                             </ul>
@@ -145,7 +145,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Daftar Form</h1>
+                            <h1 class="m-0">Data Transaksi</h1>
                             <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
                             <select size="1" id="row-1-office" name="row-1-office">
                                 <option value="01" selected="selected">
@@ -189,7 +189,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="beranda">Home</a></li>
-                                <li class="breadcrumb-item active">Daftar Form</li>
+                                <li class="breadcrumb-item active">Data Transaksi</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -204,7 +204,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Table</h3>
+                                    <h3 class="card-title">Data</h3>
 
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">

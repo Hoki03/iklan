@@ -108,14 +108,6 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="Beranda2" class="nav-link">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
-                                <p>
-                                    Beranda 2
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fas fa-th"></i>
                                 <p>
@@ -127,7 +119,7 @@
                                 <li class="nav-item">
                                     <a href="form" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form</p>
+                                        <p>Transaksi</p>
                                     </a>
                                 </li>
                             </ul>
@@ -135,7 +127,7 @@
                                 <li class="nav-item">
                                     <a href="data_transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Form</p>
+                                        <p>Data Transaksi</p>
                                     </a>
                                 </li>
                             </ul>
