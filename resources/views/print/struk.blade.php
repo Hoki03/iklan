@@ -77,11 +77,11 @@
                 <tr>
                     <td>Jenis :</td>
                     <td><?php if ($d['jenis_id'] == 1) {
-                                                            echo "Radio";
-                                                        } else {
-                                                            echo "Videotron";
-                                                        }
-                                                    ?></td>
+                            echo "Radio";
+                        } else {
+                            echo "Videotron";
+                        }
+                        ?></td>
                 </tr>
             </table>
         </div>
