@@ -63,18 +63,18 @@
                 </tr>
                 <tr>
                     <td>Uang Sebanyak :</td>
-                    <td><?= nominal($data_transaksi['nominal']); ?></td>
+                    <td><?= nominal($data_transaksi['nominal']); ?>Rupiah</td>
                 </tr>
                 <tr>
                     <td>Guna Membayar :</td>
                     <td>{{$data_transaksi->keterangan}}</td>
                 </tr>
                 <tr>
-                    <td>Date and time :</td>
-                    <td>{{$data_transaksi->tanggal}}</td>
+                    <td>Tanggal :</td>
+                    <td><?= date("d F Y", strtotime($data_transaksi['tanggal'])); ?></td>
                 </tr>
                 <tr>
-                    <td>Pilih :</td>
+                    <td>Jenis :</td>
                     <td>{{$data_transaksi->jenis_id}}</td>
                 </tr>
             </table>
