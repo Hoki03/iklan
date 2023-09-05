@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css')}}">
     use Carbon\carbon;
 </head>
+
 <body>
     <!-- <div class="wrapper">
         <section class="invoice">
@@ -91,7 +92,7 @@
         </div>
         <!-- /.col -->
         <div class="col-3">
-            <p>Salatiga,  {{ date('d F Y')}}</p>
+            <p>Salatiga, {{ date('d F Y')}}</p>
             <br>
             <br>
             (................................)
@@ -108,60 +109,60 @@
     <script>
         window.addEventListener("load", window.print());
     </script>
-<?php
+    <?php
 
-function nominal($satuan)
-{
-$huruf = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
-if ($satuan < 12)
-return " " . $huruf[$satuan];
-elseif ($satuan < 20)
-return nominal($satuan - 10) . "Belas";
-elseif ($satuan < 100)
-return nominal($satuan / 10) . " Puluh" . nominal($satuan % 10);
-elseif ($satuan < 200)
-return " Seratus" . nominal($satuan - 100);
-elseif ($satuan < 1000)
-return nominal($satuan / 100) . " Ratus" . nominal($satuan % 100);
-elseif ($satuan < 2000)
-return " Seribu" . nominal($satuan - 1000);
-elseif ($satuan < 1000000)
-return nominal($satuan / 1000) . " Ribu" . nominal($satuan % 1000);
-elseif ($satuan < 1000000000)
-return nominal($satuan / 1000000) . " Juta" . nominal($satuan % 1000000);
-elseif ($satuan <= 1000000000)
-echo "Maaf Tidak Dapat di Prose Karena Jumlah Uang Terlalu Besar ";
-}
+    function nominal($satuan)
+    {
+        $huruf = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
+        if ($satuan < 12)
+            return " " . $huruf[$satuan];
+        elseif ($satuan < 20)
+            return nominal($satuan - 10) . "Belas";
+        elseif ($satuan < 100)
+            return nominal($satuan / 10) . " Puluh" . nominal($satuan % 10);
+        elseif ($satuan < 200)
+            return " Seratus" . nominal($satuan - 100);
+        elseif ($satuan < 1000)
+            return nominal($satuan / 100) . " Ratus" . nominal($satuan % 100);
+        elseif ($satuan < 2000)
+            return " Seribu" . nominal($satuan - 1000);
+        elseif ($satuan < 1000000)
+            return nominal($satuan / 1000) . " Ribu" . nominal($satuan % 1000);
+        elseif ($satuan < 1000000000)
+            return nominal($satuan / 1000000) . " Juta" . nominal($satuan % 1000000);
+        elseif ($satuan <= 1000000000)
+            echo "Maaf Tidak Dapat di Prose Karena Jumlah Uang Terlalu Besar ";
+    }
 
-// Untuk membuat tanggal dalam format indonesia
-// $angkaBln = date("n");
-// switch ($angkaBln) {
-//     case 1 : $namaBln = "Januari";
-//         break;
-//     case 2 : $namaBln = "Februari";
-//         break;
-//     case 3 : $namaBln = "Maret";
-//         break;
-//     case 4 : $namaBln = "April";
-//         break;
-//     case 5 : $namaBln = "Mei";
-//         break;
-//     case 6 : $namaBln = "Juni";
-//         break;
-//     case 7 : $namaBln = "Juli";
-//         break;
-//     case 8 : $namaBln = "Agustus";
-//         break;
-//     case 9 : $namaBln = "September";
-//         break;
-//     case 10: $namaBln = "Oktober";
-//         break;
-//     case 11: $namaBln = "November";
-//         break;
-//     case 12: $namaBln = "Desember";
-//         break;
-//}
-?>
+    // Untuk membuat tanggal dalam format indonesia
+    // $angkaBln = date("n");
+    // switch ($angkaBln) {
+    //     case 1 : $namaBln = "Januari";
+    //         break;
+    //     case 2 : $namaBln = "Februari";
+    //         break;
+    //     case 3 : $namaBln = "Maret";
+    //         break;
+    //     case 4 : $namaBln = "April";
+    //         break;
+    //     case 5 : $namaBln = "Mei";
+    //         break;
+    //     case 6 : $namaBln = "Juni";
+    //         break;
+    //     case 7 : $namaBln = "Juli";
+    //         break;
+    //     case 8 : $namaBln = "Agustus";
+    //         break;
+    //     case 9 : $namaBln = "September";
+    //         break;
+    //     case 10: $namaBln = "Oktober";
+    //         break;
+    //     case 11: $namaBln = "November";
+    //         break;
+    //     case 12: $namaBln = "Desember";
+    //         break;
+    //}
+    ?>
 </body>
 
 </html>
