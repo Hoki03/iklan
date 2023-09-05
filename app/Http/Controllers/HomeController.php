@@ -102,8 +102,8 @@ class HomeController extends Controller
             'nama'  =>  'required',
             'nominal' => 'required',
             'keterangan' => 'nullable',
-            'time'  =>  'required',
-            'pilihan' => 'required',
+            'tanggal'  =>  'required',
+            'jenis_id' => 'required',
         ]);
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
@@ -114,6 +114,7 @@ class HomeController extends Controller
         $data_transaksi['jenis_id']  = $request->jenis_id;
 
         Transaksi::create($data_transaksi);
+
 
         return redirect()->route('admin.form');
     }
