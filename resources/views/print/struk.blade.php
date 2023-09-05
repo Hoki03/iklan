@@ -87,12 +87,12 @@
         <!-- accepted payments column -->
         <div class="col-9">
             Terbilang     Rp. {{$data_transaksi->nominal}}
-            {{ nominal('Terbilang')}}
+            {{ nominal('$satuan';'$huruf')}}
         </div>
         <!-- /.col -->
         <div class="col-3">
-            <p>Salatiga, {{$data_transaksi->tanggal}}</p>
-            <div>{{ tanggal('l, d F Y')}}</div>
+            <p>Salatiga,  {{ tanggal('d F Y')}}</p>
+            <div></div>
             <br>
             <br>
             (................................)
