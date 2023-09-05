@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iklan | Form</title>
+    <title>Iklan | Transaksi</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -119,7 +119,7 @@
                                 <li class="nav-item">
                                     <a href="form" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form</p>
+                                        <p>Transaksi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -131,7 +131,7 @@
                                 <li class="nav-item">
                                     <a href="data_transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Daftar Form</p>
+                                        <p>Data Transaksi</p>
                                     </a>
                                 </li>
                             </ul>
@@ -151,12 +151,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Form</h1>
+                            <h1 class="m-0">Transaksi</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="beranda">Home</a></li>
-                                <li class="breadcrumb-item active">Form</li>
+                                <li class="breadcrumb-item active">Transaksi</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->

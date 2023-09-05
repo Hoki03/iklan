@@ -119,7 +119,7 @@
                                 <li class="nav-item">
                                     <a href="form" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Form</p>
+                                        <p>Transaksi</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -131,7 +131,7 @@
                                 <li class="nav-item">
                                     <a href="data_pelanggan" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Daftar Form </p>
+                                        <p>Data Transaksi </p>
                                     </a>
                                 </li>
                             </ul>
