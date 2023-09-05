@@ -10,10 +10,6 @@ use Illuminate\Support\Facades\Validator;
 
 class HomeController extends Controller
 {
-    public function dashboard()
-    {
-        return view('layout/dashboard');
-    }
     public function op_beranda()
     {
         return view('layout/operator/beranda');
@@ -27,7 +23,7 @@ class HomeController extends Controller
     {
         $data_user = User::get();
 
-        return view('layout/table_user', compact('data_user'));
+        return view('layout/admin/table_user', compact('data_user'));
     }
 
 
@@ -109,8 +105,8 @@ class HomeController extends Controller
         $data_transaksi['nama']     = $request->nama;
         $data_transaksi['nominal']  = $request->nominal;
         $data_transaksi['keterangan']  = $request->keterangan;
-        $data_transaksi['time']  = $request->time;
-        $data_transaksi['pilihan']  = $request->pilihan;
+        $data_transaksi['tanggal']  = $request->tanggal;
+        $data_transaksi['jenis_id']  = $request->jenis_id;
 
         Transaksi::create($data_transaksi);
 

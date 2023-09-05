@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iklan | Edit User</title>
+    <title>Iklan | Daftar Form</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -123,15 +123,15 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_user" class="nav-link active">
+                                    <a href="data_user" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Data user</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_pelanggan" class="nav-link">
+                                    <a href="data_pelanggan" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Daftar Form </p>
+                                        <p>Daftar Form</p>
                                     </a>
                                 </li>
                             </ul>
@@ -151,13 +151,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Edit User</h1>
+                            <h1 class="m-0">Daftar Form</h1>
+                            <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="dashboard">Home</a></li>
-                                <li class="breadcrumb-item"><a href="data_user">Data User</a></li>
-                                <li class="breadcrumb-item active">Edit User</li>
+                                <li class="breadcrumb-item active">Daftar Form</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -168,45 +168,93 @@
             <!-- Main content -->
             <section class="content">
                 <div class="container-fluid">
-                    <div class="card card-primary">
-                        <!-- /.card-header -->
-                        <!-- form start -->
-                        <form action="{{route('admin.update_user',['id'=>$data_user->id])}}" method="POST">
-                            @csrf
-                            @method('PUT')
-                            <div class="card-body">
-                                <div class="form-group">
-                                    <label for="nama1">Nama:</label>
-                                    <input name="name" type="name" class="form-control" id="nama1" placeholder="Masukkan nama" value="{{$data_user->name}}">
-                                    @error('name')
-                                    <small>*{{$message}}</small>
-                                    @enderror
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3 class="card-title">Table</h3>
+
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
+                                            <input id="search_input" type="text" name="table_search" class="form-control float-right" placeholder="Search" onkeyup="myFunction()">
+
+                                            <div class="input-group-append">
+                                                <button type="submit" class="btn btn-default">
+                                                    <i class="fas fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="email1">Email:</label>
-                                    <input type="email" class="form-control" id="email1" name="email" placeholder="Masukkan email" value="{{$data_user->email}}">
-                                    @error('email')
-                                    <small>*{{$message}}</small>
-                                    @enderror
-                                </div>
-                                <div class="form-group">
-                                    <label for="pass">Password:</label>
-                                    <input type="password" class="form-control" id="pass" name="password" placeholder="Masukkan password">
-                                    @error('password')
-                                    <small>*{{$message}}</small>
-                                    @enderror
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table id="table_pelanggan" class="table table-head-fixed text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>ID</th>
+                                                <th>Nama</th>
+                                                <th>Nominal</th>
+                                                <th>Keterangan</th>
+                                                <th>Tanggal</th>
+                                                <th>Jenis</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php foreach ($data_transaksi as $d) : ?>
+                                                <tr>
+                                                    <td><input type="checkbox" name="id[]" value="" disabled></td>
+                                                    <td><?= $d['id'] ?></td>
+                                                    <td><?= $d['nama']; ?></td>
+                                                    <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
+                                                    <td><?= $d['keterangan']; ?></td>
+                                                    <td><?= $d['tanggal']; ?></td>
+                                                    <td><?= $d['jenis_id']; ?></td>
+                                                    <td>
+                                                        <a href="{{route('admin.edit_transaksi',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
+                                                        <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
+                                                        <a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                                                    </td>
+                                                </tr>
+                                                <div class="modal fade" id="modal-hapus{{$d->id}}">
+                                                    <div class="modal-dialog">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title">Konfirmasi Hapus Data</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <p>Apakah kamu ingin menghapus data ini? (<b>{{$d->nama}}</b></b>)</p>
+                                                            </div>
+                                                            <div class="modal-footer content-between">
+                                                                <form action="{{route('admin.hapus_pelanggan',['id'=>$d->id])}}" method="POST">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                                    <button type="submit" class="btn btn-primary">Hapus</button>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                        <!-- /.modal-content -->
+                                                    </div>
+                                                    <!-- /.modal-dialog -->
+                                                </div>
+                                                <!-- /.modal -->
+                                            <?php endforeach; ?>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
-                            </div>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </section>
             <!-- /.card-body -->
         </div>
-        <!-- /.content -->
+        <!-- /.card -->
 
         <!-- /.content-wrapper -->
         <footer class="main-footer">
@@ -253,15 +301,30 @@
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
+    <!-- search table -->
 
     <script>
-        //Date and time picker
-        $('#reservationdatetime').datetimepicker({
-            icons: {
-                time: 'far fa-clock'
+        function myFunction() {
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("search_input");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("table_pelanggan");
+            tr = table.getElementsByTagName("tr");
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
             }
-        });
+        }
     </script>
+
+
 </body>
 
 </html>
