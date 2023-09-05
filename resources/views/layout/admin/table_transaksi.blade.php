@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iklan | Data Transaksi</title>
+    <title>Iklan | Daftar Form</title>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -119,7 +119,7 @@
                                 <li class="nav-item">
                                     <a href="form" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Transaksi</p>
+                                        <p>Form</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -131,7 +131,7 @@
                                 <li class="nav-item">
                                     <a href="data_transaksi" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Data Transaksi</p>
+                                        <p>Daftar Form</p>
                                     </a>
                                 </li>
                             </ul>
@@ -151,8 +151,8 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Data Transaksi</h1>
-                            <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print Data</a>
+                            <h1 class="m-0">Daftar Form</h1>
+                            <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
                             <select size="1" id="row-1-office" name="row-1-office">
                             <option value="01" selected="selected">
                             januari
@@ -195,7 +195,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="beranda">Home</a></li>
-                                <li class="breadcrumb-item active">Data Transaksi</li>
+                                <li class="breadcrumb-item active">Daftar Form</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -210,7 +210,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h3 class="card-title">Data</h3>
+                                    <h3 class="card-title">Table</h3>
 
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -247,14 +247,8 @@
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                                     <td><?= $d['keterangan']; ?></td>
-                                                    <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
-                                                    <td><?php if ($d['jenis_id'] == 1) {
-                                                            echo "Radio";
-                                                        } else {
-                                                            echo "Videotron";
-                                                        }
-                                                    ?></td>
-                                                    <td>
+                                                    <td><?= $d['tanggal']; ?></td>
+                                                    <td><?= $d['jenis_id']; ?></td>
                                                     <td>
                                                         <a href="{{route('admin.edit_transaksi',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
