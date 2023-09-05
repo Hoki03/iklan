@@ -37,6 +37,11 @@ class HomeController extends Controller
         return view('layout/admin/form_adm');
     }
 
+    public function form_op()
+    {
+        return view('layout/operator/form_op');
+    }
+
     public function tambah_user(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -94,6 +99,12 @@ class HomeController extends Controller
     {
         $data_transaksi = Transaksi::get();
         return view('layout/admin/table_transaksi', compact('data_transaksi'));
+    }
+
+    public function transaksi_op()
+    {
+        $data_transaksi = Transaksi::get();
+        return view('layout/operator/table_transaksi', compact('data_transaksi'));
     }
 
     public function form(Request $request)

@@ -131,6 +131,14 @@
                                     </a>
                                 </li>
                             </ul>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="data_transaksi" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Form</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                     <a href="{{route('logout')}}" type="button" class="btn btn-block btn-outline-primary">Logout</a>
