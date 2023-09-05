@@ -129,7 +129,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_pelanggan" class="nav-link">
+                                    <a href="data_transaksi" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Form</p>
                                     </a>

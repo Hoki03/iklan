@@ -40,9 +40,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:admin'], 'as'
         return view('layout/dashboard2');
     });
 
-    Route::get('form', function () {
-        return view('layout/form');
-    });
+    Route::get('form', [HomeController::class, 'form_adm'])->name('form');
+
 
     Route::get('data_user', [HomeController::class, 'user'])->name('data_user');
     Route::get('form_user', [HomeController::class, 'form_user'])->name('form_user');
@@ -52,12 +51,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:admin'], 'as'
     Route::get('edit_user/{id}', [HomeController::class, 'edit_user'])->name('edit_user');
     Route::put('update_user/{id}', [HomeController::class, 'update_user'])->name('update_user');
 
-    Route::get('edit_pelanggan/{id}', [HomeController::class, 'edit_pelanggan'])->name('edit_pelanggan');
-    Route::put('update_pelanggan/{id}', [HomeController::class, 'update_pelanggan'])->name('update_pelanggan');
+    Route::get('edit_transaksi/{id}', [HomeController::class, 'edit_transaksi'])->name('edit_transaksi');
+    Route::put('update_transaksi/{id}', [HomeController::class, 'update_transaksi'])->name('update_transaksi');
 
-    Route::get('data_pelanggan', [HomeController::class, 'pelanggan'])->name('form');
-    Route::post('tambah_pelanggan', [HomeController::class, 'form'])->name('tambah_pelanggan');
-    Route::delete('hapus_pelanggan/{id}', [HomeController::class, 'hapus_pelanggan'])->name('hapus_pelanggan');
+    Route::get('data_transaksi', [HomeController::class, 'transaksi'])->name('form');
+    Route::post('tambah_transaksi', [HomeController::class, 'form'])->name('tambah_transaksi');
+    Route::delete('hapus_transaksi/{id}', [HomeController::class, 'hapus_transaksi'])->name('hapus_transaksi');
 
     Route::get('struk/{id}', [HomeController::class, 'struk'])->name('struk');
     Route::get('printall', [HomeController::class, 'printall'])->name('printall');

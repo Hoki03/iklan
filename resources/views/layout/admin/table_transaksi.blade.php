@@ -129,7 +129,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="data_pelanggan" class="nav-link active">
+                                    <a href="data_transaksi" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Daftar Form</p>
                                     </a>
@@ -188,7 +188,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0">
-                                    <table id="table_pelanggan" class="table table-head-fixed text-nowrap">
+                                    <table id="table_transaksi" class="table table-head-fixed text-nowrap">
                                         <thead>
                                             <tr>
                                                 <th></th>
@@ -230,7 +230,7 @@
                                                                 <p>Apakah kamu ingin menghapus data ini? (<b>{{$d->nama}}</b></b>)</p>
                                                             </div>
                                                             <div class="modal-footer content-between">
-                                                                <form action="{{route('admin.hapus_pelanggan',['id'=>$d->id])}}" method="POST">
+                                                                <form action="{{route('admin.hapus_transaksi',['id'=>$d->id])}}" method="POST">
                                                                     @csrf
                                                                     @method('DELETE')
                                                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -308,7 +308,7 @@
             var input, filter, table, tr, td, i, txtValue;
             input = document.getElementById("search_input");
             filter = input.value.toUpperCase();
-            table = document.getElementById("table_pelanggan");
+            table = document.getElementById("table_transaksi");
             tr = table.getElementsByTagName("tr");
             for (i = 0; i < tr.length; i++) {
                 td = tr[i];
