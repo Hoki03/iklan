@@ -29,12 +29,12 @@ Route::get('recover', function () {
 });
 
 Route::group(['prefix' => 'operator', 'middleware' => ['auth', 'admin:operator'], 'as' => 'operator.'], function () {
-    Route::get('op_beranda', [HomeController::class, 'op_beranda'])->name('op_beranda');
+    Route::get('beranda', [HomeController::class, 'op_beranda'])->name('beranda');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:admin'], 'as' => 'admin.'], function () {
 
-    Route::get('adm_beranda', [HomeController::class, 'adm_beranda'])->name('adm_beranda');
+    Route::get('beranda', [HomeController::class, 'adm_beranda'])->name('beranda');
     Route::get('dashboard', [HomeController::class, 'dashboard']);
     Route::get('dashboard2', function () {
         return view('layout/dashboard2');

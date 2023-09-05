@@ -25,9 +25,9 @@ class LoginController extends Controller
         ];
 
         if (Auth::attempt($data_user) && Auth::user()->level == "admin") {
-            return redirect()->route('admin.adm_beranda');
+            return redirect()->route('admin.beranda');
         } else if (Auth::attempt($data_user) && Auth::user()->level == "operator") {
-            return redirect()->route('operator.op_beranda');
+            return redirect()->route('operator.beranda');
         } else {
             return redirect()->route('login')->with('failed', 'Email atau Password Salah');
         }
