@@ -210,7 +210,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Pilih</label>
-                                        <select class="form-control" type="jenis" name="jenis">
+                                        <select class="form-control" type="jenis" name="jenis_id">
                                             <option>Radio</option>
                                             <option>Videotron</option>
                                         </select>
