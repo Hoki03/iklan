@@ -44,7 +44,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="Beranda" class="nav-link">Home</a>
+                    <a href="beranda" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -64,7 +64,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="Beranda" class="brand-link">
+            <a href="beranda" class="brand-link">
                 <center>
                     <h3 class="brand-text font-weight-light">Iklan</h3>
                 </center>
@@ -100,7 +100,7 @@
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
                         <li class="nav-item">
-                            <a href="Beranda" class="nav-link active">
+                            <a href="beranda" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
                                     Beranda
@@ -151,7 +151,7 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="Beranda">Home</a></li>
+                                <li class="breadcrumb-item"><a href="beranda">Home</a></li>
                                 <li class="breadcrumb-item active">Beranda</li>
                             </ol>
                         </div><!-- /.col -->
