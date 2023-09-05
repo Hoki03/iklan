@@ -91,8 +91,8 @@
         </div>
         <!-- /.col -->
         <div class="col-3">
-            <p>Salatiga, {{$data_transaksi->tanggal}}</p>
-            <div>{{ tanggal('l, d F Y')}}</div>
+            <p>Salatiga,  {{ tanggal('d F Y')}}</p>
+            <div></div>
             <br>
             <br>
             (................................)
