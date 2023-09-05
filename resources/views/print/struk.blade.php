@@ -63,19 +63,18 @@
                 </tr>
                 <tr>
                     <td>Uang Sebanyak :</td>
-                    <td>{{$data_transaksi->nominal}}</td>
-                    <div>{{ nominal('Terbilang')}}</div>
+                    <td><?= nominal($data_transaksi['nominal']); ?>Rupiah</td>
                 </tr>
                 <tr>
                     <td>Guna Membayar :</td>
                     <td>{{$data_transaksi->keterangan}}</td>
                 </tr>
                 <tr>
-                    <td>Date and time :</td>
-                    <td>{{$data_transaksi->tanggal}}</td>
+                    <td>Tanggal :</td>
+                    <td><?= date("d F Y", strtotime($data_transaksi['tanggal'])); ?></td>
                 </tr>
                 <tr>
-                    <td>Pilih :</td>
+                    <td>Jenis :</td>
                     <td>{{$data_transaksi->jenis_id}}</td>
                 </tr>
             </table>
@@ -83,16 +82,16 @@
         <!-- /.col -->
     </div>
     <!-- /.row -->
-
+    <br>
+    <br>
     <div class="row">
         <!-- accepted payments column -->
         <div class="col-9">
-            Terbilang     Rp. {{$data_transaksi->nominal}}
+            Terbilang Rp. <?= number_format($data_transaksi['nominal'], 0, ',', '.'); ?>
         </div>
         <!-- /.col -->
         <div class="col-3">
             <p>Salatiga,  {{ date('d F Y')}}</p>
-            <div></div>
             <br>
             <br>
             (................................)
@@ -111,25 +110,25 @@
     </script>
 <?php
 
-function Terbilang($satuan)
+function nominal($satuan)
 {
 $huruf = array("", "Satu", "Dua", "Tiga", "Empat", "Lima", "Enam", "Tujuh", "Delapan", "Sembilan", "Sepuluh", "Sebelas");
 if ($satuan < 12)
 return " " . $huruf[$satuan];
 elseif ($satuan < 20)
-return Terbilang($satuan - 10) . "Belas";
+return nominal($satuan - 10) . "Belas";
 elseif ($satuan < 100)
-return Terbilang($satuan / 10) . " Puluh" . Terbilang($satuan % 10);
+return nominal($satuan / 10) . " Puluh" . nominal($satuan % 10);
 elseif ($satuan < 200)
-return " Seratus" . Terbilang($satuan - 100);
+return " Seratus" . nominal($satuan - 100);
 elseif ($satuan < 1000)
-return Terbilang($satuan / 100) . " Ratus" . Terbilang($satuan % 100);
+return nominal($satuan / 100) . " Ratus" . nominal($satuan % 100);
 elseif ($satuan < 2000)
-return " Seribu" . Terbilang($satuan - 1000);
+return " Seribu" . nominal($satuan - 1000);
 elseif ($satuan < 1000000)
-return Terbilang($satuan / 1000) . " Ribu" . Terbilang($satuan % 1000);
+return nominal($satuan / 1000) . " Ribu" . nominal($satuan % 1000);
 elseif ($satuan < 1000000000)
-return Terbilang($satuan / 1000000) . " Juta" . Terbilang($satuan % 1000000);
+return nominal($satuan / 1000000) . " Juta" . nominal($satuan % 1000000);
 elseif ($satuan <= 1000000000)
 echo "Maaf Tidak Dapat di Prose Karena Jumlah Uang Terlalu Besar ";
 }
