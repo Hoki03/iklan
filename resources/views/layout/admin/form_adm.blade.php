@@ -197,7 +197,7 @@
                                         <label>Tanggal:</label>
                                         <div class="input-group date" id="reservationdate" data-target-input="nearest">
                                             <?php $dt = new DateTime(); ?>
-                                            <input name="tanggal" <?php echo 'value="' . $dt->format('Y-mm-d') . '"' ?> type="text" class="form-control" />
+                                            <input name="tanggal" <?php echo 'value="' . $dt->format('Y-m-d') . '"' ?> type="text" class="form-control" />
                                             <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
@@ -275,7 +275,7 @@
     <script>
         //Date picker
         $('#reservationdate').datetimepicker({
-            format: 'Y-mm-DD'
+            format: 'Y-MM-DD'
         });
     </script>
 </body>
