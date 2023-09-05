@@ -194,7 +194,7 @@
                                     </div>
                                     <!-- Date and time -->
                                     <div class="form-group">
-                                        <label>Date and time:</label>
+                                        <label>Tanggal:</label>
                                         <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
                                             <input type="text" name="tanggal" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
                                             <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
