@@ -67,11 +67,11 @@
                         <td><?= $d['keterangan']; ?></td>
                         <td><?= date('d F Y', strtotime($d['tanggal'])); ?></td>
                         <td><?php if ($d['jenis_id'] == 1) {
-                                                            echo "Radio";
-                                                        } else {
-                                                            echo "Videotron";
-                                                        }
-                        ?></td>
+                                echo "Radio";
+                            } else {
+                                echo "Videotron";
+                            }
+                            ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
