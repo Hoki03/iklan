@@ -195,9 +195,10 @@
                                     <!-- Date and time -->
                                     <div class="form-group">
                                         <label>Tanggal:</label>
-                                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                            <input type="text" name="tanggal" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
-                                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                            <?php $dt = new DateTime(); ?>
+                                            <input name="tanggal" <?php echo 'value="' . $dt->format('Y-mm-d') . '"' ?> type="text" class="form-control" />
+                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </div>
@@ -207,9 +208,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Pilih</label>
-                                        <select class="form-control" type="jenis" name="jenis_id">
-                                            <option>Radio</option>
-                                            <option>Videotron</option>
+                                        <select class="form-control" type="jenis">
+                                            <option name="jenis_id" value="1">Radio</option>
+                                            <option name="jenis_id" value="2">Videotron</option>
                                         </select>
                                     </div>
                                 </div>
@@ -272,11 +273,9 @@
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
 
     <script>
-        //Date and time picker
-        $('#reservationdatetime').datetimepicker({
-            icons: {
-                time: 'far fa-clock'
-            }
+        //Date picker
+        $('#reservationdate').datetimepicker({
+            format: 'Y-mm-DD'
         });
     </script>
 </body>
