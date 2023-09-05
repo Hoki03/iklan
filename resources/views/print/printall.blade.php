@@ -65,7 +65,7 @@
                         <td><?= $d['nama']; ?></td>
                         <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                         <td><?= $d['keterangan']; ?></td>
-                        <td><?= $d['tanggal']; ?></td>
+                        <td><?= date('d F Y', strtotime($d['tanggal'])); ?></td>
                         <td><?= $d['jenis']; ?></td>
                     </tr>
                 <?php endforeach ?>
