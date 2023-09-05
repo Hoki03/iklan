@@ -208,9 +208,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Pilih</label>
-                                        <select class="form-control" type="jenis">
-                                            <option name="jenis_id" value="1">Radio</option>
-                                            <option name="jenis_id" value="2">Videotron</option>
+                                        <select class="form-control" type="jenis" name="jenis_id">
+                                            <option value="1">Radio</option>
+                                            <option value="2">Videotron</option>
                                         </select>
                                     </div>
                                 </div>

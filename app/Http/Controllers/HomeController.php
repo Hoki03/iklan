@@ -105,7 +105,6 @@ class HomeController extends Controller
             'tanggal'  =>  'required',
             'jenis_id' => 'required',
         ]);
-
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
         $data_transaksi['nama']     = $request->nama;
