@@ -32,6 +32,7 @@ Route::group(['prefix' => 'operator', 'middleware' => ['auth', 'admin:operator']
     Route::get('beranda', [HomeController::class, 'op_beranda'])->name('beranda');
     Route::get('form', [HomeController::class, 'form_op'])->name('form');
     Route::get('data_transaksi', [HomeController::class, 'transaksi_op'])->name('data_transaksi');
+    Route::get('struk/{id}', [HomeController::class, 'struk'])->name('struk');
 });
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:admin'], 'as' => 'admin.'], function () {

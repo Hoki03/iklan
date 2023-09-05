@@ -119,7 +119,7 @@
                                 <li class="nav-item">
                                     <a href="form" class="nav-link active">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>transaksi</p>
+                                        <p>Form</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
@@ -129,7 +129,6 @@
                                     </a>
                                 </li>
                             </ul>
-
                         </li>
                     </ul>
                     <a href="{{route('logout')}}" type="button" class="btn btn-block btn-outline-primary">Logout</a>
@@ -146,12 +145,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">transaksi</h1>
+                            <h1 class="m-0">Form</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="beranda">Home</a></li>
-                                <li class="breadcrumb-item active">transaksi</li>
+                                <li class="breadcrumb-item active">Form</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -190,9 +189,10 @@
                                     <!-- Date and time -->
                                     <div class="form-group">
                                         <label>Tanggal:</label>
-                                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                            <input type="text" name="tanggal" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
-                                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                            <?php $dt = new DateTime(); ?>
+                                            <input name="tanggal" <?php echo 'value="' . $dt->format('Y-m-d') . '"' ?> type="text" class="form-control" />
+                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </div>
@@ -203,8 +203,8 @@
                                     <div class="form-group">
                                         <label>Pilih</label>
                                         <select class="form-control" type="jenis" name="jenis_id">
-                                            <option>Radio</option>
-                                            <option>Videotron</option>
+                                            <option value="1">Radio</option>
+                                            <option value="2">Videotron</option>
                                         </select>
                                     </div>
                                 </div>
@@ -267,11 +267,9 @@
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
 
     <script>
-        //Date and time picker
-        $('#reservationdatetime').datetimepicker({
-            icons: {
-                time: 'far fa-clock'
-            }
+        //Date picker
+        $('#reservationdate').datetimepicker({
+            format: 'Y-MM-DD'
         });
     </script>
 </body>

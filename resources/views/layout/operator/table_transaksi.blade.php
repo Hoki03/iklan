@@ -240,46 +240,23 @@
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
-                                                    <td><?= $d['keterangan']; ?></td>
+                                                    <td><?php if ($d['keterangan'] == "") {
+                                                            echo "(Tanpa Keterangan)";
+                                                        } ?></td>
                                                     <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
 
                                                     <td><?php if ($d['jenis_id'] == 1) {
                                                             echo "Radio";
-                                                        } else {
+                                                        } else if ($d['jenis_id'] == 2) {
                                                             echo "Videotron";
                                                         }
                                                         ?></td>
                                                     <td>
-                                                        <a href="{{route('admin.edit_transaksi',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
-                                                        <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
-                                                        <a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+
+                                                        <a href="{{route('operator.struk',['id'=>$d->id])}}" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                                                     </td>
                                                 </tr>
-                                                <div class="modal fade" id="modal-hapus{{$d->id}}">
-                                                    <div class="modal-dialog">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title">Konfirmasi Hapus Data</h4>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <p>Apakah kamu ingin menghapus data ini? (<b>{{$d->nama}}</b></b>)</p>
-                                                            </div>
-                                                            <div class="modal-footer content-between">
-                                                                <form action="{{route('admin.hapus_transaksi',['id'=>$d->id])}}" method="POST">
-                                                                    @csrf
-                                                                    @method('DELETE')
-                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                                                    <button type="submit" class="btn btn-primary">Hapus</button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                        <!-- /.modal-content -->
-                                                    </div>
-                                                    <!-- /.modal-dialog -->
-                                                </div>
+
                                                 <!-- /.modal -->
                                             <?php endforeach; ?>
                                         </tbody>
