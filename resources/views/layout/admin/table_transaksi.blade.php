@@ -153,6 +153,44 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Daftar Form</h1>
                             <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
+                            <select size="1" id="row-1-office" name="row-1-office">
+                            <option value="01" selected="selected">
+                            januari
+                            </option>
+                            <option value="02">
+                            Februari
+                            </option>
+                            <option value="03">
+                            Maret
+                            </option>
+                            <option value="04">
+                            April
+                            </option>
+                            <option value="05">
+                            Mei
+                            </option>
+                            <option value="06">
+                            Juni
+                            </option>
+                            <option value="07">
+                            Juli
+                            </option>
+                            <option value="08">
+                            Agustus
+                            </option>
+                            <option value="09">
+                            September
+                            </option>
+                            <option value="10">
+                            Oktober
+                            </option>
+                            <option value="11">
+                            November
+                            </option>
+                            <option value="12">
+                            Desember
+                            </option>
+                            </select>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -204,7 +242,7 @@
                                         <tbody>
                                             <?php foreach ($data_transaksi as $d) : ?>
                                                 <tr>
-                                                    <td><input type="checkbox" name="id[]" value="" disabled></td>
+                                                    <td><input type="checkbox" name="id[]" value=""></td>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>

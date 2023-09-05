@@ -47,26 +47,26 @@
     <!-- /.row -->
 
     <div class="card-body table-responsive p-0 mt-5 mb-5">
-        <table id="table_pelanggan" class="table table-head-fixed text-nowrap">
+        <table id="table_transaksi" class="table table-head-fixed text-nowrap">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Nama</th>
                     <th>Nominal</th>
                     <th>Keterangan</th>
-                    <th>Waktu</th>
-                    <th>Pilihan</th>
+                    <th>Tanggal</th>
+                    <th>Jenis</th>
                 </tr>
             </thead>
             <tbody>
-                <?php foreach ($data_pelanggan as $d) : ?>
+                <?php foreach ($data_transaksi as $d) : ?>
                     <tr>
                         <td><?= $d['id'] ?></td>
                         <td><?= $d['nama']; ?></td>
                         <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                         <td><?= $d['keterangan']; ?></td>
-                        <td><?= $d['time']; ?></td>
-                        <td><?= $d['pilihan']; ?></td>
+                        <td><?= $d['tanggal']; ?></td>
+                        <td><?= $d['jenis']; ?></td>
                     </tr>
                 <?php endforeach ?>
             </tbody>
@@ -79,7 +79,7 @@
         </div>
         <!-- /.col -->
         <div class="col-3 mt-5">
-            <p>Salatiga, 2/22/2014</p>
+            <p>Salatiga, {{ date('d F Y')}}</p>
             <br>
             <br>
             (................................)
