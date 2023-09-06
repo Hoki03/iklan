@@ -78,7 +78,7 @@
                         <img src="{{asset('Image/logo-kominfo-transparent.png')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin Kominfo</a>
+                        <a href="#" class="d-block">Operator Kominfo</a>
                     </div>
                 </div>
 
