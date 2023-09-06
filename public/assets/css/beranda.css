@@ -1,0 +1,14 @@
+.btn-logout:hover {
+    background: tomato !important;
+    color: white !important;
+}
+
+.btn-logout i {
+    font-size: 1.2rem;
+    margin: 0 3.5px 0 3.5px;
+}
+
+.btn-menu i{
+    font-size: 1.2rem;
+    margin: 0 3.5px 0 3.5px;
+}

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Iklan | Transaksi</title>
 
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
     <!-- Font Awesome -->
@@ -26,6 +27,8 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('lte/plugins/summernote/summernote-bs4.min.css')}}">
+    <!-- core css -->
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/beranda.css')}}" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -44,10 +47,10 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="beranda" class="nav-link">Home</a>
+                    <a href="beranda" class="nav-link">Beranda</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Contact</a>
+                    <a href="#" class="nav-link">Kontak</a>
                 </li>
             </ul>
             <!-- Right navbar links -->
@@ -78,12 +81,12 @@
                         <img src="{{asset('Image/logo-kominfo-transparent.png')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin Kominfo</a>
+                        <a href="#" class="d-block">Operator Kominfo</a>
                     </div>
                 </div>
 
                 <!-- SidebarSearch Form -->
-                <div class="form-inline">
+                <!-- <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
@@ -92,7 +95,7 @@
                             </button>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -107,31 +110,30 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item menu-open">
-                            <a href="#" class="nav-link active">
-                                <i class="nav-icon fas fa-th"></i>
+
+                        <li class="nav-item">
+                            <a href="form" class="nav-link btn-menu active">
+                                <!-- <i class="far fa-circle nav-icon"></i> -->
+                                <i class="ri-folder-add-fill"></i>
+                                <p>Transaksi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="data_transaksi" class="nav-link btn-menu">
+                                <i class="ri-folder-open-fill"></i>
+                                <p>Data Transaksi</p>
+                            </a>
+                        </li>
+                        <li class="nav-item" style="margin-top:15px;">
+                            <a href="{{route('logout')}}" class="btn-logout nav-link" style="border: 1px solid tomato; color: tomato">
+                                <!-- <i class="nav-icon fas fa-tachometer-alt "></i> -->
+                                <i class="ri-arrow-left-circle-fill"></i>
                                 <p>
-                                    Beranda
-                                    <i class="right fas fa-angle-left"></i>
+                                    Logout
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="form" class="nav-link active">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Form</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="data_transaksi" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Daftar Transaksi</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                     </ul>
-                    <a href="{{route('logout')}}" type="button" class="btn btn-block btn-outline-primary">Logout</a>
                 </nav>
                 <!-- /.sidebar-menu -->
             </div>
@@ -145,12 +147,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Form</h1>
+                            <h1 class="m-0">Tambah Transaksi</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="beranda">Home</a></li>
-                                <li class="breadcrumb-item active">Form</li>
+                                <li class="breadcrumb-item"><a href="beranda">Beranda</a></li>
+                                <li class="breadcrumb-item active">Tambah Transaksi</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -224,9 +226,9 @@
         <footer class="main-footer">
             <strong>Copyright &copy; 2023 <a href="#">Iklan</a>.</strong>
             All rights reserved.
-            <div class="float-right d-none d-sm-inline-block">
+            <!-- <div class="float-right d-none d-sm-inline-block">
                 <b>Version</b> 1.0.0
-            </div>
+            </div> -->
         </footer>
     </div>
     <!-- ./wrapper -->
