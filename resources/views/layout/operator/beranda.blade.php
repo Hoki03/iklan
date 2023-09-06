@@ -78,7 +78,7 @@
                         <img src="{{asset('Image/logo-kominfo-transparent.png')}}" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Admin Kominfo</a>
+                        <a href="#" class="d-block">Operator Kominfo</a>
                     </div>
                 </div>
 
@@ -96,6 +96,7 @@
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
+                    
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                         with font-awesome or any other icon font library -->
