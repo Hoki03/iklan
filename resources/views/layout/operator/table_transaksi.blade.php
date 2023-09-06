@@ -242,6 +242,8 @@
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                                     <td><?php if ($d['keterangan'] == "") {
                                                             echo "(Tanpa Keterangan)";
+                                                        } else {
+                                                            echo $d['keterangan'];
                                                         } ?></td>
                                                     <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
 
