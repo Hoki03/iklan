@@ -1,10 +1,11 @@
-.layer-1 {
-    position: absolute;
-    left: 15px;
-    top: 16px;
-    overflow: visible;
-}
-
 .flex{
     background: #fff;
+}
+
+.btn-signin {
+    background: #025ab8;
+}
+
+.btn-signin:hover {
+    background: #00458E;
 }
