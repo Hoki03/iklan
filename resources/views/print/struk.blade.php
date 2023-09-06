@@ -64,7 +64,7 @@
                 </tr>
                 <tr>
                     <td>Uang Sebanyak :</td>
-                    <td><?= nominal($data_transaksi['nominal']); ?>Rupiah</td>
+                    <td><?= nominal($data_transaksi['nominal']); ?> Rupiah</td>
                 </tr>
                 <tr>
                     <td>Guna Membayar :</td>
@@ -76,7 +76,7 @@
                 </tr>
                 <tr>
                     <td>Jenis :</td>
-                    <td><?php if ($d['jenis_id'] == 1) {
+                    <td><?php if ($data_transaksi['jenis_id'] == 1) {
                             echo "Radio";
                         } else {
                             echo "Videotron";
