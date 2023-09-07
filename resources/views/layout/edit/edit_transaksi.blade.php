@@ -196,9 +196,10 @@
                                     <!-- Date and time -->
                                     <div class="form-group">
                                         <label>Tanggal:</label>
-                                        <div class="input-group date" id="reservationdatetime" data-target-input="nearest">
-                                            <input value="{{$data_transaksi->tanggal}}" type="text" name="tanggal" class="form-control datetimepicker-input" data-target="#reservationdatetime" />
-                                            <div class="input-group-append" data-target="#reservationdatetime" data-toggle="datetimepicker">
+                                        <div class="input-group date" id="reservationdate" data-target-input="nearest">
+                                            <?php $dt = new DateTime("$data_transaksi->tanggal"); ?>
+                                            <input name="tanggal" <?php echo 'value="' . $dt->format('Y-m-d') . '"' ?> type="text" class="form-control" />
+                                            <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
                                                 <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                                             </div>
                                         </div>
@@ -208,9 +209,9 @@
                                     </div>
                                     <div class="form-group">
                                         <label>Pilih</label>
-                                        <select class="form-control" type="jenis" name="jenis">
-                                            <option value="Radio" <?php if ($data_transaksi->pilihan == 'Radio') echo 'selected="selected"'; ?>>Radio</option>
-                                            <option value="Videotron" <?php if ($data_transaksi->pilihan == 'Videotron') echo 'selected="selected"'; ?>>Videotron</option>
+                                        <select class="form-control" type="jenis" name="jenis_id">
+                                            <option value="1" <?php if ($data_transaksi->pilihan == 'Radio') echo 'selected="selected"'; ?>>Radio</option>
+                                            <option value="2" <?php if ($data_transaksi->pilihan == 'Videotron') echo 'selected="selected"'; ?>>Videotron</option>
                                         </select>
                                     </div>
                                 </div>
@@ -273,11 +274,9 @@
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
 
     <script>
-        //Date and time picker
-        $('#reservationdatetime').datetimepicker({
-            icons: {
-                time: 'far fa-clock'
-            }
+        //Date picker
+        $('#reservationdate').datetimepicker({
+            format: 'Y-MM-DD'
         });
     </script>
 </body>

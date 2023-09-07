@@ -166,7 +166,7 @@
                     <div class="card card-primary">
                         <!-- /.card-header -->
                         <!-- Transaksi start -->
-                        <form action="{{route('admin.tambah_transaksi')}}" method="POST">
+                        <form action="{{route('operator.tambah_transaksi')}}" method="POST">
                             @csrf
                             <div class="card-body">
                                 <div class="form-group">
