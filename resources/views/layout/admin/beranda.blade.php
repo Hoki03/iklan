@@ -254,7 +254,6 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Nama</th>
-                                                    <th>Nominal</th>
                                                     <th>Tanggal</th>
                                                 </tr>
                                             </thead>
@@ -262,9 +261,8 @@
                                                 <?php foreach ($data_transaksi as $d) : ?>
                                                     <tr>
                                                         <?php if ($d['jenis_id'] == 1) { ?>
-                                                            <td><?= $d['id']; ?></td>
+                                                            <td><a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
                                                             <td><?= $d['nama']; ?></td>
-                                                            <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                                             <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
                                                         <?php } ?>
                                                     </tr>
@@ -306,7 +304,6 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Nama</th>
-                                                    <th>Nominal</th>
                                                     <th>Tanggal</th>
                                                 </tr>
                                             </thead>
@@ -314,9 +311,8 @@
                                                 <?php foreach ($data_transaksi as $d) : ?>
                                                     <tr>
                                                         <?php if ($d['jenis_id'] == 2) { ?>
-                                                            <td><?= $d['id']; ?></td>
+                                                            <td><a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
                                                             <td><?= $d['nama']; ?></td>
-                                                            <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
                                                             <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
                                                         <?php } ?>
                                                     </tr>
