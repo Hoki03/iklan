@@ -54,6 +54,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:admin'], 'as'
     Route::get('edit_transaksi/{id}', [HomeController::class, 'edit_transaksi'])->name('edit_transaksi');
     Route::put('update_transaksi/{id}', [HomeController::class, 'update_transaksi'])->name('update_transaksi');
 
+    Route::get('form_adm', [HomeController::class, 'form_adm'])->name('form_adm');
     Route::get('data_transaksi', [HomeController::class, 'transaksi'])->name('form');
     Route::post('tambah_transaksi', [HomeController::class, 'form'])->name('tambah_transaksi');
     Route::delete('hapus_transaksi/{id}', [HomeController::class, 'hapus_transaksi'])->name('hapus_transaksi');

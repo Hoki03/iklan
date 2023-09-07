@@ -131,7 +131,7 @@ class HomeController extends Controller
         Transaksi::create($data_transaksi);
 
 
-        return redirect()->route('admin.form');
+        return redirect()->route('admin.form_adm');
     }
 
     public function tambah_transaksi_op(Request $request)
@@ -184,7 +184,7 @@ class HomeController extends Controller
 
         Transaksi::whereId($id)->update($data_transaksi);
 
-        return redirect()->route('admin.form');
+        return back()->with('success', 'Data berhasil diedit');
     }
 
 

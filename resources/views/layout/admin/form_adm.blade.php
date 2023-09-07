@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Iklan | Transaksi</title>
 
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="{{asset('lte/plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css')}}">
+
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Google Font: Source Sans Pro -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -218,7 +221,7 @@
                                 </div>
                             </div>
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary swalDefaultSuccess">Submit</button>
                             </div>
                         </form>
                     </div>
@@ -273,12 +276,17 @@
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
+    <!-- SweetAlert2 -->
+    <script src="{{asset('lte/plugins/sweetalert2/sweetalert2.min.js')}}"></script>
 
     <script>
         //Date picker
         $('#reservationdate').datetimepicker({
             format: 'Y-MM-DD'
         });
+    </script>
+    <script>
+
     </script>
 </body>
 
