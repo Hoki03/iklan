@@ -190,6 +190,16 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label>Pilih</label>
+                                    <select class="form-control" type="level" name="level">
+                                        <option value="admin">Admin</option>
+                                        <option value="operator">Operator</option>
+                                    </select>
+                                    @error('level')
+                                    <small>*{{$message}}</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="pass">Password:</label>
                                     <input type="password" class="form-control" id="pass" name="password" placeholder="Masukkan password">
                                     @error('password')

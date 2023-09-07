@@ -47,12 +47,14 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
             'name'  =>  'required',
             'email' => 'required',
+            'level' => 'required',
             'password' => 'required',
         ]);
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
         $data_user['name']     = $request->name;
         $data_user['email']  = $request->email;
+        $data_user['level']  = $request->level;
         $data_user['password']  = bcrypt($request->password);
 
         User::create($data_user);
@@ -71,12 +73,14 @@ class HomeController extends Controller
         $validator = Validator::make($request->all(), [
             'name'  =>  'required',
             'email' => 'required',
+            'level' => 'required',
             'password' => 'nullable',
         ]);
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
 
         $data_user['name']     = $request->name;
         $data_user['email']  = $request->email;
+        $data_user['level']  = $request->level;
         if ($request->password) {
             $data_user['password']  = bcrypt($request->password);
         }

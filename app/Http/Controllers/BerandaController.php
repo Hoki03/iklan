@@ -21,6 +21,8 @@ class BerandaController extends Controller
     {
         $jum_transaksi = Transaksi::count();
         $jum_user = User::count();
+        $data_transaksi = Transaksi::get();
+        $data_user = User::get();
         return view('layout/operator/beranda', compact('jum_transaksi', 'jum_user', 'data_transaksi', 'data_user'));
     }
 }

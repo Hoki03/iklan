@@ -110,7 +110,7 @@
                                 </p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="form" class="nav-link btn-menu">
                                 <!-- <i class="far fa-circle nav-icon"></i> -->
@@ -130,7 +130,7 @@
                                 <p>Data Transaksi</p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item" style="margin-top:15px;">
                             <a href="{{route('logout')}}" class="btn-logout nav-link" style="border: 1px solid tomato; color: tomato">
                                 <!-- <i class="nav-icon fas fa-tachometer-alt "></i> -->
@@ -193,12 +193,13 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0">
-                                    <table id="table_user" class="table table-head-fixed text-nowrap">
+                                    <table id="table_user" class="table table-head-fixed">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>User</th>
                                                 <th>Email</th>
+                                                <th>level</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -208,6 +209,7 @@
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['name']; ?></td>
                                                     <td><?= $d['email']; ?></td>
+                                                    <td><?= $d['level']; ?></td>
                                                     <td>
                                                         <a href="{{route('admin.edit_user',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
