@@ -25,4 +25,5 @@ class BerandaController extends Controller
         $data_user = User::get();
         return view('layout/operator/beranda', compact('jum_transaksi', 'jum_user', 'data_transaksi', 'data_user'));
     }
+
 }

@@ -178,6 +178,32 @@
                         <div class="col-12">
                             <div class="card">
                                 <!-- /.card-header -->
+                                <?php
+                                function tanggal($tanggal)
+                                {
+                                    $bulan = array(
+                                        1 => 'Januari',
+                                        'Februari',
+                                        'Maret',
+                                        'April',
+                                        'Mei',
+                                        'Juni',
+                                        'Juli',
+                                        'Agustus',
+                                        'September',
+                                        'Oktober',
+                                        'November',
+                                        'Desember'
+                                    );
+
+                                    $pecahkan = explode('-', $tanggal);
+
+                                    // variabel pecahkan 0 = tahun
+                                    // variabel pecahkan 1 = bulan
+                                    // variabel pecahkan 2 = tanggal
+
+                                    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+                                } ?>
                                 <div class="card-body">
                                     <table id="example1" class="table table-bordered table-striped">
                                         <thead>
@@ -202,7 +228,9 @@
                                                         } else {
                                                             echo $d['keterangan'];
                                                         } ?></td>
-                                                    <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+                                                    <td>
+                                                                <?php echo tanggal($d['tanggal']) ?>
+                                                            </td>
                                                     <td><?php if ($d['jenis_id'] == 1) {
                                                             echo "Radio";
                                                         } else if ($d['jenis_id'] == 2) {

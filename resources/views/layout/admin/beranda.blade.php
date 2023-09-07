@@ -247,6 +247,32 @@
                                     </div>
                                 </div>
                                 <!-- /.card-header -->
+                                <?php
+                                function tanggal($tanggal)
+                                {
+                                    $bulan = array(
+                                        1 => 'Januari',
+                                        'Februari',
+                                        'Maret',
+                                        'April',
+                                        'Mei',
+                                        'Juni',
+                                        'Juli',
+                                        'Agustus',
+                                        'September',
+                                        'Oktober',
+                                        'November',
+                                        'Desember'
+                                    );
+
+                                    $pecahkan = explode('-', $tanggal);
+
+                                    // variabel pecahkan 0 = tahun
+                                    // variabel pecahkan 1 = bulan
+                                    // variabel pecahkan 2 = tanggal
+
+                                    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+                                } ?>
                                 <div class="card-body p-0">
                                     <div class="table-responsive">
                                         <table class="table m-0">
@@ -263,7 +289,9 @@
                                                         <?php if ($d['jenis_id'] == 1) { ?>
                                                             <td><a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
                                                             <td><?= $d['nama']; ?></td>
-                                                            <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+                                                            <td>
+                                                                <?php echo tanggal($d['tanggal']) ?>
+                                                            </td>
                                                         <?php } ?>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -313,7 +341,9 @@
                                                         <?php if ($d['jenis_id'] == 2) { ?>
                                                             <td><a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
                                                             <td><?= $d['nama']; ?></td>
-                                                            <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+                                                            <td>
+                                                                <?php echo tanggal($d['tanggal']) ?>
+                                                            </td>
                                                         <?php } ?>
                                                     </tr>
                                                 <?php endforeach; ?>
@@ -386,6 +416,7 @@
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- tanggal indonesia -->
     <script>
         //Date and time picker
         $('#reservationdatetime').datetimepicker({
