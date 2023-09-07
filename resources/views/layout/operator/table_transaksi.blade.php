@@ -222,7 +222,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0">
-                                    <table id="table_transaksi" class="table table-head-fixed text-nowrap">
+                                    <table id="table_transaksi" class="table table-head-fixed">
                                         <thead>
                                             <tr>
                                                 <th></th>

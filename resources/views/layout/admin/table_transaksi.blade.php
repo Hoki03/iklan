@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Iklan | Daftar Form</title>
+    <title>Iklan | Data Transaksi</title>
 
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
     <!-- Google Font: Source Sans Pro -->
@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- core css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/beranda.css')}}" />
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -131,7 +135,7 @@
                         </li>
 
                         <li class="nav-item" style="margin-top:15px;">
-                            <a href="{{route('logout')}}" class="btn-logout nav-link"  style="border: 1px solid tomato; color: tomato">
+                            <a href="{{route('logout')}}" class="btn-logout nav-link" style="border: 1px solid tomato; color: tomato">
                                 <!-- <i class="nav-icon fas fa-tachometer-alt "></i> -->
                                 <i class="ri-arrow-left-circle-fill"></i>
                                 <p>
@@ -153,51 +157,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Daftar Form</h1>
-                            <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
-                            <select size="1" id="row-1-office" name="row-1-office">
-                                <option value="01" selected="selected">
-                                    januari
-                                </option>
-                                <option value="02">
-                                    Februari
-                                </option>
-                                <option value="03">
-                                    Maret
-                                </option>
-                                <option value="04">
-                                    April
-                                </option>
-                                <option value="05">
-                                    Mei
-                                </option>
-                                <option value="06">
-                                    Juni
-                                </option>
-                                <option value="07">
-                                    Juli
-                                </option>
-                                <option value="08">
-                                    Agustus
-                                </option>
-                                <option value="09">
-                                    September
-                                </option>
-                                <option value="10">
-                                    Oktober
-                                </option>
-                                <option value="11">
-                                    November
-                                </option>
-                                <option value="12">
-                                    Desember
-                                </option>
-                            </select>
-                        </div><!-- /.col -->
+                            <h1 class="m-0">Data Transaksi</h1>
+                        </div>
+                        <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="beranda">Beranda</a></li>
-                                <li class="breadcrumb-item active">Daftar Transaksi</li>
+                                <li class="breadcrumb-item active">Data Transaksi</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -211,27 +177,11 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Table</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input id="search_input" type="text" name="table_search" class="form-control float-right" placeholder="Search" onkeyup="myFunction()">
-
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table id="table_transaksi" class="table table-head-fixed text-nowrap">
+                                <div class="card-body">
+                                    <table id="example1" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th></th>
                                                 <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Nominal</th>
@@ -244,13 +194,21 @@
                                         <tbody>
                                             <?php foreach ($data_transaksi as $d) : ?>
                                                 <tr>
-                                                    <td><input type="checkbox" name="id[]" value=""></td>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
-                                                    <td><?= $d['keterangan']; ?></td>
-                                                    <td><?= $d['tanggal']; ?></td>
-                                                    <td><?= $d['jenis_id']; ?></td>
+                                                    <td><?php if ($d['keterangan'] == "") {
+                                                            echo "(Tanpa Keterangan)";
+                                                        } else {
+                                                            echo $d['keterangan'];
+                                                        } ?></td>
+                                                    <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+                                                    <td><?php if ($d['jenis_id'] == 1) {
+                                                            echo "Radio";
+                                                        } else if ($d['jenis_id'] == 2) {
+                                                            echo "Videotron";
+                                                        }
+                                                        ?></td>
                                                     <td>
                                                         <a href="{{route('admin.edit_transaksi',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
@@ -285,13 +243,20 @@
                                                 <!-- /.modal -->
                                             <?php endforeach; ?>
                                         </tbody>
+
                                     </table>
                                 </div>
+                                <!-- /.card-body -->
                             </div>
+                            <!-- /.card -->
                         </div>
+                        <!-- /.col -->
                     </div>
+                    <!-- /.row -->
                 </div>
+                <!-- /.container-fluid -->
             </section>
+            <!-- /.content -->
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
@@ -338,11 +303,10 @@
     <!-- AdminLTE App -->
     <script src="{{asset('lte/dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
-    <script src="dist/js/demo.js"></script>
+    <script src="{{asset('dist/js/demo.js')}}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
     <!-- search table -->
-
     <script>
         function myFunction() {
             var input, filter, table, tr, td, i, txtValue;
@@ -362,6 +326,39 @@
                 }
             }
         }
+    </script>
+    <!-- DataTables  & Plugins -->
+    <script src="{{asset('lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/jszip/jszip.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/pdfmake/pdfmake.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/pdfmake/vfs_fonts.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function() {
+            $("#example1").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["excel", "print", "colvis"]
+            }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
     </script>
 
 
