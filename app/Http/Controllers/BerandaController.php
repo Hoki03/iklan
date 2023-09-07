@@ -10,14 +10,17 @@ class BerandaController extends Controller
 {
     public function beranda_adm()
     {
-        $data_transaksi = Transaksi::count();
-        $data_user = User::count();
-        return view('layout/admin/beranda', compact('data_transaksi', 'data_user'));
+        $jum_transaksi = Transaksi::count();
+        $jum_user = User::count();
+        $data_transaksi = Transaksi::get();
+        $data_user = User::get();
+        return view('layout/admin/beranda', compact('jum_transaksi', 'jum_user', 'data_transaksi', 'data_user'));
     }
+
     public function beranda_op()
     {
-        $data_transaksi = Transaksi::count();
-        $data_user = User::count();
-        return view('layout/operator/beranda', compact('data_transaksi', 'data_user'));
+        $jum_transaksi = Transaksi::count();
+        $jum_user = User::count();
+        return view('layout/operator/beranda', compact('jum_transaksi', 'jum_user', 'data_transaksi', 'data_user'));
     }
 }

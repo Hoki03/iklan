@@ -175,7 +175,7 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>{{$data_transaksi}}</h3>
+                                    <h3>{{$jum_transaksi}}</h3>
                                     <p>Total Transaksi</p>
                                 </div>
                                 <div class="icon">
@@ -189,7 +189,7 @@
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>{{$data_user}}</h3>
+                                    <h3>{{$jum_user}}</h3>
                                     <p>Pengguna</p>
                                 </div>
                                 <div class="icon">
@@ -256,62 +256,19 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                                <td>Call of Duty IV</td>
-                                                <td><span class="badge badge-success">Shipped</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                                <td>Samsung Smart TV</td>
-                                                <td><span class="badge badge-warning">Pending</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                <td>iPhone 6 Plus</td>
-                                                <td><span class="badge badge-danger">Delivered</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                <td>Samsung Smart TV</td>
-                                                <td><span class="badge badge-info">Processing</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                                <td>Samsung Smart TV</td>
-                                                <td><span class="badge badge-warning">Pending</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                <td>iPhone 6 Plus</td>
-                                                <td><span class="badge badge-danger">Delivered</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                                <td>Call of Duty IV</td>
-                                                <td><span class="badge badge-success">Shipped</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                                </td>
-                                            </tr>
+                                            <?php foreach ($data_transaksi as $d) : ?>
+                                                <tr>
+                                                    <td><?= $d['id'] ?></td>
+                                                    <td><?= $d['nama']; ?></td>
+                                                    <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
+                                                    <td><?php if ($d['jenis_id'] == 1) {
+                                                            echo "Radio";
+                                                        } else if ($d['jenis_id'] == 2) {
+                                                            echo "Videotron";
+                                                        }
+                                                        ?></td>
+                                                </tr>
+                                            <?php endforeach; ?>
                                         </tbody>
                                     </table>
                                 </div>
