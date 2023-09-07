@@ -16,18 +16,16 @@
 </head>
 
 <body>
-  <div class="flex items-center min-h-screen p-6 bg-gray-50 white:bg-gray-900">
+  <div class="flex items-center min-h-screen p-6 bg-gray-50 white:bg-gray-900" style="flex-direction:column">
     <img src="{{asset('Image/logo-kominfo-transparent.png')}}" width="32px" height="32px" style="align-self: flex-start;" alt="User Image">
-
-    <div class="flex-1 h-full max-w-4xl mx-auto overflow-hidden bg-white rounded-lg  dark:bg-gray-800">
+    <div class="flex-1 h-full w-full overflow-hidden bg-white rounded-lg  dark:bg-gray-800" >
       <!-- <div class="flex flex-col overflow-y-auto md:flex-row"> -->
       <!-- <div class="h-32 md:h-auto md:w-1/2">
           <img aria-hidden="true" class="object-cover w-full h-full dark:hidden" src="{{asset('windmil/public/assets/img/login-office.jpeg')}}" alt="Office" />
           <img aria-hidden="true" class="hidden object-cover w-full h-full dark:block" src="{{asset('windmil/public/assets/img/login-office-dark.jpeg')}}" alt="Office" />
         </div> -->
-      <center>
-        <div class="flex items-center justify-center p-20 sm:p-12 md:w-1/2 ">
-          <div class="w-full">
+        <div class="flex items-center text-center max-w-2xl justify-center mx-auto p-20 sm:p-12">
+          <div class="w-full" style="padding: 0 5em;">
             <form action="{{route('login_proses')}}" method="post">
               @csrf
               <h1 class="mb-4">
@@ -71,7 +69,6 @@
 
           </div>
         </div>
-      </center>
       <!-- </div> -->
     </div>
   </div>
