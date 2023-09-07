@@ -228,61 +228,115 @@
                                 <a href="#" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <!-- ./col -->
-                        <!-- TABLE: LATEST ORDERS -->
-                        <div class="card">
-                            <div class="card-header border-transparent">
-                                <h3 class="card-title">Latest Orders</h3>
+                    </div>
+                    <!-- ./col -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- TABLE: LATEST ORDERS -->
+                            <div class="card">
+                                <div class="card-header border-transparent">
+                                    <h3 class="card-title">Transaksi Radio</h3>
 
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table m-0">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Nama</th>
-                                                <th>Nominal</th>
-                                                <th>Jenis</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php foreach ($data_transaksi as $d) : ?>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
                                                 <tr>
-                                                    <td><?= $d['id'] ?></td>
-                                                    <td><?= $d['nama']; ?></td>
-                                                    <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
-                                                    <td><?php if ($d['jenis_id'] == 1) {
-                                                            echo "Radio";
-                                                        } else if ($d['jenis_id'] == 2) {
-                                                            echo "Videotron";
-                                                        }
-                                                        ?></td>
+                                                    <th>ID</th>
+                                                    <th>Nama</th>
+                                                    <th>Nominal</th>
+                                                    <th>Tanggal</th>
                                                 </tr>
-                                            <?php endforeach; ?>
-                                        </tbody>
-                                    </table>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($data_transaksi as $d) : ?>
+                                                    <tr>
+                                                        <?php if ($d['jenis_id'] == 1) { ?>
+                                                            <td><?= $d['id']; ?></td>
+                                                            <td><?= $d['nama']; ?></td>
+                                                            <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
+                                                            <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
                                 </div>
-                                <!-- /.table-responsive -->
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <a href="form" class="btn btn-sm btn-info float-left">Tambah Transaksi</a>
+                                    <a href="data_transaksi" class="btn btn-sm btn-secondary float-right">Lihat Semua</a>
+                                </div>
+                                <!-- /.card-footer -->
                             </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer clearfix">
-                                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Tambah Transaksi</a>
-                                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">Lihat Semua</a>
+                            <!-- /.card -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- TABLE: LATEST ORDERS -->
+                            <div class="card">
+                                <div class="card-header border-transparent">
+                                    <h3 class="card-title">Transaksi Videotron</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nama</th>
+                                                    <th>Nominal</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($data_transaksi as $d) : ?>
+                                                    <tr>
+                                                        <?php if ($d['jenis_id'] == 2) { ?>
+                                                            <td><?= $d['id']; ?></td>
+                                                            <td><?= $d['nama']; ?></td>
+                                                            <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
+                                                            <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <a href="form" class="btn btn-sm btn-info float-left">Tambah Transaksi</a>
+                                    <a href="data_transaksi" class="btn btn-sm btn-secondary float-right">Lihat Semua</a>
+                                </div>
+                                <!-- /.card-footer -->
                             </div>
-                            <!-- /.card-footer -->
                         </div>
                         <!-- /.card -->
                     </div>
+
                 </div>
             </section>
             <!-- /.card-body -->
