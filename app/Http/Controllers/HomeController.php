@@ -169,7 +169,7 @@ class HomeController extends Controller
             'jenis_id' => 'required',
         ]);
         if ($validator->fails()) return redirect()->back()->withInput()->withErrors($validator);
-        
+
         $data_transaksi['nama']     = $request->nama;
         $data_transaksi['nominal']  = $request->nominal;
         $data_transaksi['tanggal']  = $request->tanggal;
@@ -197,7 +197,7 @@ class HomeController extends Controller
     {
         $data_transaksi = Transaksi::count();
         $data_user = User::count();
-        return view('layout/dashboard', compact('data_transaksi', 'data_user'));
+        return view('layout/admin/beranda', compact('data_transaksi', 'data_user'));
     }
 
     public function struk(Request $request, $id)
