@@ -249,10 +249,10 @@
                                     <table class="table m-0">
                                         <thead>
                                             <tr>
-                                                <th>Order ID</th>
-                                                <th>Item</th>
-                                                <th>Status</th>
-                                                <th>Popularity</th>
+                                                <th>ID</th>
+                                                <th>Nama</th>
+                                                <th>Nominal</th>
+                                                <th>Jenis</th>
                                             </tr>
                                         </thead>
                                         <tbody>
