@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css')}}">
-    use Carbon\carbon;
+    <!-- use Carbon\carbon; -->
 </head>
 
 <body>

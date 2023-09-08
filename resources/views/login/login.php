@@ -16,13 +16,12 @@
 </head>
 
 <body>
-<div class="flex items-center min-h-screen p-6 bg-gray-50 white:bg-gray-900" style="flex-direction:column">
+  <div class="flex items-center min-h-screen p-6 bg-gray-50 white:bg-gray-900" style="flex-direction:column">
     <img src="{{asset('Image/logo-kominfo-transparent.png')}}" width="32px" height="32px" style="align-self: flex-start;" alt="User Image">
     <div class="flex-1 h-full w-full overflow-hidden bg-white rounded-lg  dark:bg-gray-800">
       <div class="flex items-center text-center max-w-2xl justify-center mx-auto p-20 sm:p-12">
         <div class="w-full" style="padding: 0 5em;">
           <form action="{{route('login_proses')}}" method="post">
-            @csrf
             <h1 class="mb-4">
               Password Reset
             </h1>
@@ -39,7 +38,7 @@
               kirim
             </button>
             @if($message=Session::get('succes'))
-            
+
             <script>
               Swal.fire('{{$message}}');
             </script>
@@ -54,6 +53,7 @@
       </div>
     </div>
   </div>
+
 </body>
 
 </html>
