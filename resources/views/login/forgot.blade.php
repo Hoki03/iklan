@@ -27,7 +27,7 @@
 
 <body class="hold-transition login-page">
   <!-- /lupa password -->
-  <!-- <div class="login-box">
+  <div class="login-box">
     <div class="card card-outline card-primary">
       <div class="card-header text-center">
         <a href="{{asset('/')}}" class="h1"><b>Password Reset</a>
@@ -51,16 +51,16 @@
         </form>
       </div>
     </div>
-  </div> -->
+  </div>
 
-  
 
-    <!-- jQuery -->
-    <script src="{{asset('lte/plugins/jquery/jquery.min.js')}}"></script>
-    <!-- Bootstrap 4 -->
-    <script src="{{asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <!-- AdminLTE App -->
-    <script src="{{asset('lte/dist/js/adminlte.min.js')}}"></script>
+
+  <!-- jQuery -->
+  <script src="{{asset('lte/plugins/jquery/jquery.min.js')}}"></script>
+  <!-- Bootstrap 4 -->
+  <script src="{{asset('lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <!-- AdminLTE App -->
+  <script src="{{asset('lte/dist/js/adminlte.min.js')}}"></script>
 </body>
 
 </html>
