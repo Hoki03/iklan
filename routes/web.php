@@ -4,7 +4,8 @@ use App\Http\Controllers\BerandaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
-use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use Illuminate\Foundation\Application;
+use Inertia\Inertia;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,25 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Route::get('/', function () {
+//     return Inertia::render('Welcome', [
+//         'canLogin' => Route::has('login'),
+//         'canRegister' => Route::has('register'),
+//         'laravelVersion' => Application::VERSION,
+//         'phpVersion' => PHP_VERSION,
+//     ]);
+// });
+
+// Route::middleware([
+//     'auth:sanctum',
+//     config('jetstream.auth_session'),
+//     'verified',
+// ])->group(function () {
+//     Route::get('/dashboard', function () {
+//         return Inertia::render('Dashboard');
+//     })->name('dashboard');
+// });
 
 Route::get('/', [LoginController::class, 'login'])->name('login');
 
@@ -54,6 +74,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin:admin'], 'as'
     Route::get('edit_transaksi/{id}', [HomeController::class, 'edit_transaksi'])->name('edit_transaksi');
     Route::put('update_transaksi/{id}', [HomeController::class, 'update_transaksi'])->name('update_transaksi');
 
+    Route::get('form_adm', [HomeController::class, 'form_adm'])->name('form_adm');
     Route::get('data_transaksi', [HomeController::class, 'transaksi'])->name('form');
     Route::post('tambah_transaksi', [HomeController::class, 'form'])->name('tambah_transaksi');
     Route::delete('hapus_transaksi/{id}', [HomeController::class, 'hapus_transaksi'])->name('hapus_transaksi');

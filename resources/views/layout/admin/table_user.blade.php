@@ -29,6 +29,11 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- core css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/beranda.css')}}" />
+
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -110,7 +115,7 @@
                                 </p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item">
                             <a href="form" class="nav-link btn-menu">
                                 <!-- <i class="far fa-circle nav-icon"></i> -->
@@ -130,7 +135,7 @@
                                 <p>Data Transaksi</p>
                             </a>
                         </li>
-                        
+
                         <li class="nav-item" style="margin-top:15px;">
                             <a href="{{route('logout')}}" class="btn-logout nav-link" style="border: 1px solid tomato; color: tomato">
                                 <!-- <i class="nav-icon fas fa-tachometer-alt "></i> -->
@@ -176,29 +181,15 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Data</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input id="search_input" type="text" name="table_search" class="form-control float-right" placeholder="Search" onkeyup="myFunction()">
-
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table id="table_user" class="table table-head-fixed text-nowrap">
+                                <div class="card-body">
+                                    <table id="table_user" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
                                                 <th>User</th>
                                                 <th>Email</th>
+                                                <th>Level</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
@@ -208,6 +199,7 @@
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['name']; ?></td>
                                                     <td><?= $d['email']; ?></td>
+                                                    <td><?= $d['level']; ?></td>
                                                     <td>
                                                         <a href="{{route('admin.edit_user',['id'=>$d->id])}}" class="btn btn-primary"><i class="fas fa-pen"></i>Edit</a>
                                                         <a data-toggle="modal" data-target="#modal-hapus{{$d->id}}" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Hapus</a>
@@ -297,36 +289,41 @@
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
-    <!-- search table -->
+    <!-- DataTables  & Plugins -->
+    <script src="{{asset('lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/jszip/jszip.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/pdfmake/pdfmake.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/pdfmake/vfs_fonts.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+    <!-- Page specific script -->
     <script>
-        function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search_input");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("table_user");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
-
-    <script>
-        //Date and time picker
-        $('#reservationdatetime').datetimepicker({
-            icons: {
-                time: 'far fa-clock'
-            }
+        $(function() {
+            $("#table_user").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["excel", "print", "colvis"]
+            }).buttons().container().appendTo('#table_user_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
         });
     </script>
+
+
 </body>
 
 </html>

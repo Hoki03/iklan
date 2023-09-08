@@ -27,8 +27,6 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/daterangepicker/daterangepicker.css')}}">
     <!-- summernote -->
     <link rel="stylesheet" href="{{asset('lte/plugins/summernote/summernote-bs4.min.css')}}">
-    <!-- core css -->
-    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/beranda.css')}}" />
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -47,7 +45,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="beranda" class="nav-link">Beranda</a>
+                    <a href="beranda" class="nav-link">Home</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Kontak</a>
@@ -110,33 +108,34 @@
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="form" class="nav-link btn-menu">
-                                <!-- <i class="far fa-circle nav-icon"></i> -->
-                                <i class="ri-folder-add-fill"></i>
-                                <p>Transaksi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="data_user" class="nav-link btn-menu">
-                                <i class="ri-folder-user-fill"></i>
-                                <p>Data user</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="data_transaksi" class="nav-link btn-menu active">
-                                <i class="ri-folder-open-fill"></i>
-                                <p>Data Transaksi</p>
-                            </a>
-                        </li>
-                        <li class="nav-item" style="margin-top:15px;">
-                            <a href="{{route('logout')}}" class="btn-logout nav-link" style="border: 1px solid tomato; color: tomato">
-                                <!-- <i class="nav-icon fas fa-tachometer-alt "></i> -->
-                                <i class="ri-arrow-left-circle-fill"></i>
+                        <li class="nav-item menu-open">
+                            <a href="#" class="nav-link active">
+                                <i class="nav-icon fas fa-th"></i>
                                 <p>
-                                    Logout
+                                    Beranda
+                                    <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="form" class="nav-link active">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Transaksi</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="data_user" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data user</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="data_transaksi" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Data Transaksi</p>
+                                    </a>
+                                </li>
+                            </ul>
                         </li>
                     </ul>
                 </nav>

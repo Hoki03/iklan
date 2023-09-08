@@ -191,6 +191,16 @@
                                     @enderror
                                 </div>
                                 <div class="form-group">
+                                    <label>Pilih</label>
+                                    <select class="form-control" type="level" name="level">
+                                        <option value="admin" <?php if ($data_user->level == 'admin') echo 'selected="selected"'; ?>>Admin</option>
+                                        <option value="operator" <?php if ($data_user->level == 'operator') echo 'selected="selected"'; ?>>Operator</option>
+                                    </select>
+                                    @error('level')
+                                    <small>*{{$message}}</small>
+                                    @enderror
+                                </div>
+                                <div class="form-group">
                                     <label for="pass">Password:</label>
                                     <input type="password" class="form-control" id="pass" name="password" placeholder="Masukkan password">
                                     @error('password')

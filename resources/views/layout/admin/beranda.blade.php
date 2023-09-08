@@ -175,13 +175,13 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-                                    <h3>{{$data_transaksi}}</h3>
+                                    <h3>{{$jum_transaksi}}</h3>
                                     <p>Total Transaksi</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="data_transaksi" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="data_transaksi" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -189,13 +189,13 @@
                             <!-- small box -->
                             <div class="small-box bg-warning">
                                 <div class="inner">
-                                    <h3>{{$data_user}}</h3>
+                                    <h3>{{$jum_user}}</h3>
                                     <p>Pengguna</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-person-add"></i>
                                 </div>
-                                <a href="data_user" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="data_user" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -210,7 +210,7 @@
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -225,107 +225,144 @@
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <!-- ./col -->
-                        <!-- TABLE: LATEST ORDERS -->
-                        <div class="card">
-                            <div class="card-header border-transparent">
-                                <h3 class="card-title">Latest Orders</h3>
+                    </div>
+                    <!-- ./col -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- TABLE: LATEST ORDERS -->
+                            <div class="card">
+                                <div class="card-header border-transparent">
+                                    <h3 class="card-title">Transaksi Radio</h3>
 
-                                <div class="card-tools">
-                                    <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                        <i class="fas fa-minus"></i>
-                                    </button>
-                                    <button type="button" class="btn btn-tool" data-card-widget="remove">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <!-- /.card-header -->
-                            <div class="card-body p-0">
-                                <div class="table-responsive">
-                                    <table class="table m-0">
-                                        <thead>
-                                            <tr>
-                                                <th>Order ID</th>
-                                                <th>Item</th>
-                                                <th>Status</th>
-                                                <th>Popularity</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                                <td>Call of Duty IV</td>
-                                                <td><span class="badge badge-success">Shipped</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                                <td>Samsung Smart TV</td>
-                                                <td><span class="badge badge-warning">Pending</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                <td>iPhone 6 Plus</td>
-                                                <td><span class="badge badge-danger">Delivered</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                <td>Samsung Smart TV</td>
-                                                <td><span class="badge badge-info">Processing</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#00c0ef" data-height="20">90,80,-90,70,-61,83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR1848</a></td>
-                                                <td>Samsung Smart TV</td>
-                                                <td><span class="badge badge-warning">Pending</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f39c12" data-height="20">90,80,-90,70,61,-83,68</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR7429</a></td>
-                                                <td>iPhone 6 Plus</td>
-                                                <td><span class="badge badge-danger">Delivered</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#f56954" data-height="20">90,-80,90,70,-61,83,63</div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td><a href="pages/examples/invoice.html">OR9842</a></td>
-                                                <td>Call of Duty IV</td>
-                                                <td><span class="badge badge-success">Shipped</span></td>
-                                                <td>
-                                                    <div class="sparkbar" data-color="#00a65a" data-height="20">90,80,90,-70,61,-83,63</div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                <!-- /.card-header -->
+                                <?php
+                                function tanggal($tanggal)
+                                {
+                                    $bulan = array(
+                                        1 => 'Januari',
+                                        'Februari',
+                                        'Maret',
+                                        'April',
+                                        'Mei',
+                                        'Juni',
+                                        'Juli',
+                                        'Agustus',
+                                        'September',
+                                        'Oktober',
+                                        'November',
+                                        'Desember'
+                                    );
+
+                                    $pecahkan = explode('-', $tanggal);
+
+                                    // variabel pecahkan 0 = tahun
+                                    // variabel pecahkan 1 = bulan
+                                    // variabel pecahkan 2 = tanggal
+
+                                    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+                                } ?>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nama</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($data_transaksi as $d) : ?>
+                                                    <tr>
+                                                        <?php if ($d['jenis_id'] == 1) { ?>
+                                                            <td><a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
+                                                            <td><?= $d['nama']; ?></td>
+                                                            <td>
+                                                                <?php echo tanggal($d['tanggal']) ?>
+                                                            </td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
                                 </div>
-                                <!-- /.table-responsive -->
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <a href="form" class="btn btn-sm btn-info float-left">Tambah Transaksi</a>
+                                    <a href="data_transaksi" class="btn btn-sm btn-secondary float-right">Lihat Semua</a>
+                                </div>
+                                <!-- /.card-footer -->
                             </div>
-                            <!-- /.card-body -->
-                            <div class="card-footer clearfix">
-                                <a href="javascript:void(0)" class="btn btn-sm btn-info float-left">Place New Order</a>
-                                <a href="javascript:void(0)" class="btn btn-sm btn-secondary float-right">View All Orders</a>
+                            <!-- /.card -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- TABLE: LATEST ORDERS -->
+                            <div class="card">
+                                <div class="card-header border-transparent">
+                                    <h3 class="card-title">Transaksi Videotron</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nama</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($data_transaksi as $d) : ?>
+                                                    <tr>
+                                                        <?php if ($d['jenis_id'] == 2) { ?>
+                                                            <td><a href="{{route('admin.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
+                                                            <td><?= $d['nama']; ?></td>
+                                                            <td>
+                                                                <?php echo tanggal($d['tanggal']) ?>
+                                                            </td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <a href="form" class="btn btn-sm btn-info float-left">Tambah Transaksi</a>
+                                    <a href="data_transaksi" class="btn btn-sm btn-secondary float-right">Lihat Semua</a>
+                                </div>
+                                <!-- /.card-footer -->
                             </div>
-                            <!-- /.card-footer -->
                         </div>
                         <!-- /.card -->
                     </div>
+
                 </div>
             </section>
             <!-- /.card-body -->
@@ -379,6 +416,7 @@
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- tanggal indonesia -->
     <script>
         //Date and time picker
         $('#reservationdatetime').datetimepicker({

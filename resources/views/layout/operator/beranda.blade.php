@@ -104,7 +104,7 @@
                         with font-awesome or any other icon font library -->
                         <li class="nav-item">
                             <a href="beranda" class="nav-link active">
-                                <i class="nav-icon fas fa-tachometer-alt"></i>
+                                <i class="nav-icon fas fa-tachometer-alt "></i>
                                 <p>
                                     Beranda
                                 </p>
@@ -124,6 +124,7 @@
                                 <p>Data Transaksi</p>
                             </a>
                         </li>
+
                         <li class="nav-item" style="margin-top:15px;">
                             <a href="{{route('logout')}}" class="btn-logout nav-link" style="border: 1px solid tomato; color: tomato">
                                 <!-- <i class="nav-icon fas fa-tachometer-alt "></i> -->
@@ -168,13 +169,27 @@
                             <!-- small box -->
                             <div class="small-box bg-info">
                                 <div class="inner">
-
-                                    <p>New Orders</p>
+                                    <h3>{{$jum_transaksi}}</h3>
+                                    <p>Total Transaksi</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-bag"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="data_transaksi" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
+                            </div>
+                        </div>
+                        <!-- ./col -->
+                        <div class="col-lg-3 col-6">
+                            <!-- small box -->
+                            <div class="small-box bg-warning">
+                                <div class="inner">
+                                    <h3>{{$jum_user}}</h3>
+                                    <p>Pengguna</p>
+                                </div>
+                                <div class="icon">
+                                    <i class="ion ion-person-add"></i>
+                                </div>
+                                <a href="data_user" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -184,26 +199,12 @@
                                 <div class="inner">
                                     <h3>53<sup style="font-size: 20px">%</sup></h3>
 
-                                    <p>Bounce Rate</p>
+                                    <p>Transaksi Hari Ini</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-stats-bars"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-
-                                    <p>User Registrations</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
                         <!-- ./col -->
@@ -218,11 +219,144 @@
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                                <a href="#" class="small-box-footer">Info lanjut <i class="fas fa-arrow-circle-right"></i></a>
                             </div>
                         </div>
-                        <!-- ./col -->
                     </div>
+                    <!-- ./col -->
+                    <div class="row">
+                        <div class="col-md-6">
+                            <!-- TABLE: LATEST ORDERS -->
+                            <div class="card">
+                                <div class="card-header border-transparent">
+                                    <h3 class="card-title">Transaksi Radio</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <?php
+                                function tanggal($tanggal)
+                                {
+                                    $bulan = array(
+                                        1 => 'Januari',
+                                        'Februari',
+                                        'Maret',
+                                        'April',
+                                        'Mei',
+                                        'Juni',
+                                        'Juli',
+                                        'Agustus',
+                                        'September',
+                                        'Oktober',
+                                        'November',
+                                        'Desember'
+                                    );
+
+                                    $pecahkan = explode('-', $tanggal);
+
+                                    // variabel pecahkan 0 = tahun
+                                    // variabel pecahkan 1 = bulan
+                                    // variabel pecahkan 2 = tanggal
+
+                                    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+                                } ?>
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nama</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($data_transaksi as $d) : ?>
+                                                    <tr>
+                                                        <?php if ($d['jenis_id'] == 1) { ?>
+                                                            <td><a href="{{route('operator.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
+                                                            <td><?= $d['nama']; ?></td>
+                                                            <td>
+                                                                <?php echo tanggal($d['tanggal']) ?>
+                                                            </td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <a href="form" class="btn btn-sm btn-info float-left">Tambah Transaksi</a>
+                                    <a href="data_transaksi" class="btn btn-sm btn-secondary float-right">Lihat Semua</a>
+                                </div>
+                                <!-- /.card-footer -->
+                            </div>
+                            <!-- /.card -->
+                        </div>
+                        <div class="col-md-6">
+                            <!-- TABLE: LATEST ORDERS -->
+                            <div class="card">
+                                <div class="card-header border-transparent">
+                                    <h3 class="card-title">Transaksi Videotron</h3>
+
+                                    <div class="card-tools">
+                                        <button type="button" class="btn btn-tool" data-card-widget="collapse">
+                                            <i class="fas fa-minus"></i>
+                                        </button>
+                                        <button type="button" class="btn btn-tool" data-card-widget="remove">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body p-0">
+                                    <div class="table-responsive">
+                                        <table class="table m-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>ID</th>
+                                                    <th>Nama</th>
+                                                    <th>Tanggal</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <?php foreach ($data_transaksi as $d) : ?>
+                                                    <tr>
+                                                        <?php if ($d['jenis_id'] == 2) { ?>
+                                                            <td><a href="{{route('operator.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
+                                                            <td><?= $d['nama']; ?></td>
+                                                            <td>
+                                                                <?php echo tanggal($d['tanggal']) ?>
+                                                            </td>
+                                                        <?php } ?>
+                                                    </tr>
+                                                <?php endforeach; ?>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- /.table-responsive -->
+                                </div>
+                                <!-- /.card-body -->
+                                <div class="card-footer clearfix">
+                                    <a href="form" class="btn btn-sm btn-info float-left">Tambah Transaksi</a>
+                                    <a href="data_transaksi" class="btn btn-sm btn-secondary float-right">Lihat Semua</a>
+                                </div>
+                                <!-- /.card-footer -->
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>
+
                 </div>
             </section>
             <!-- /.card-body -->
@@ -272,8 +406,8 @@
     <script src="{{asset('lte/dist/js/adminlte.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="dist/js/demo.js"></script>
-    <!-- AdminLTE Beranda demo (This is only for demo purposes) -->
-    <script src="{{asset('lte/dist/js/pages/Beranda.js')}}"></script>
+    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <script>

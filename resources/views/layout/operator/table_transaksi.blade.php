@@ -29,6 +29,10 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/summernote/summernote-bs4.min.css')}}">
     <!-- core css -->
     <link rel="stylesheet" type="text/css" href="{{asset('assets/css/beranda.css')}}" />
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-responsive/css/responsive.bootstrap4.min.css')}}">
+    <link rel="stylesheet" href="{{asset('lte/plugins/datatables-buttons/css/buttons.bootstrap4.min.css')}}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -148,45 +152,6 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Data Transaksi</h1>
-                            <a href="printall" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i>Print All</a>
-                            <select size="1" id="row-1-office" name="row-1-office">
-                                <option value="01" selected="selected">
-                                    januari
-                                </option>
-                                <option value="02">
-                                    Februari
-                                </option>
-                                <option value="03">
-                                    Maret
-                                </option>
-                                <option value="04">
-                                    April
-                                </option>
-                                <option value="05">
-                                    Mei
-                                </option>
-                                <option value="06">
-                                    Juni
-                                </option>
-                                <option value="07">
-                                    Juli
-                                </option>
-                                <option value="08">
-                                    Agustus
-                                </option>
-                                <option value="09">
-                                    September
-                                </option>
-                                <option value="10">
-                                    Oktober
-                                </option>
-                                <option value="11">
-                                    November
-                                </option>
-                                <option value="12">
-                                    Desember
-                                </option>
-                            </select>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -205,27 +170,37 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
-                                <div class="card-header">
-                                    <h3 class="card-title">Data</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <input id="search_input" type="text" name="table_search" class="form-control float-right" placeholder="Search" onkeyup="myFunction()">
-
-                                            <div class="input-group-append">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fas fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
                                 <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table id="table_transaksi" class="table table-head-fixed">
+                                <?php
+                                function tanggal($tanggal)
+                                {
+                                    $bulan = array(
+                                        1 => 'Januari',
+                                        'Februari',
+                                        'Maret',
+                                        'April',
+                                        'Mei',
+                                        'Juni',
+                                        'Juli',
+                                        'Agustus',
+                                        'September',
+                                        'Oktober',
+                                        'November',
+                                        'Desember'
+                                    );
+
+                                    $pecahkan = explode('-', $tanggal);
+
+                                    // variabel pecahkan 0 = tahun
+                                    // variabel pecahkan 1 = bulan
+                                    // variabel pecahkan 2 = tanggal
+
+                                    return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+                                } ?>
+                                <div class="card-body">
+                                    <table id="table_transaksi" class="table table-bordered table-striped">
                                         <thead>
                                             <tr>
-                                                <th></th>
                                                 <th>ID</th>
                                                 <th>Nama</th>
                                                 <th>Nominal</th>
@@ -238,7 +213,6 @@
                                         <tbody>
                                             <?php foreach ($data_transaksi as $d) : ?>
                                                 <tr>
-                                                    <td><input type="checkbox" name="id[]" value=""></td>
                                                     <td><?= $d['id'] ?></td>
                                                     <td><?= $d['nama']; ?></td>
                                                     <td>Rp. <?= number_format($d['nominal'], 0, ',', '.'); ?></td>
@@ -247,7 +221,9 @@
                                                         } else {
                                                             echo $d['keterangan'];
                                                         } ?></td>
-                                                    <td><?= date("d F Y", strtotime($d['tanggal'])); ?></td>
+                                                    <td>
+                                                        <?php echo tanggal($d['tanggal']) ?>
+                                                    </td>
 
                                                     <td><?php if ($d['jenis_id'] == 1) {
                                                             echo "Radio";
@@ -320,27 +296,38 @@
     <script src="dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="{{asset('lte/dist/js/pages/dashboard.js')}}"></script>
-    <!-- search table -->
-
+    <!-- DataTables  & Plugins -->
+    <script src="{{asset('lte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/jszip/jszip.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/pdfmake/pdfmake.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/pdfmake/vfs_fonts.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.html5.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.print.min.js')}}"></script>
+    <script src="{{asset('lte/plugins/datatables-buttons/js/buttons.colVis.min.js')}}"></script>
+    <!-- Page specific script -->
     <script>
-        function myFunction() {
-            var input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById("search_input");
-            filter = input.value.toUpperCase();
-            table = document.getElementById("table_transaksi");
-            tr = table.getElementsByTagName("tr");
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
+        $(function() {
+            $("#table_transaksi").DataTable({
+                "responsive": true,
+                "lengthChange": false,
+                "autoWidth": false,
+                "buttons": ["excel", "print", "colvis"]
+            }).buttons().container().appendTo('#table_transaksi_wrapper .col-md-6:eq(0)');
+            $('#example2').DataTable({
+                "paging": true,
+                "lengthChange": false,
+                "searching": false,
+                "ordering": true,
+                "info": true,
+                "autoWidth": false,
+                "responsive": true,
+            });
+        });
     </script>
 
 

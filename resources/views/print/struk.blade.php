@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="{{asset('lte/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('lte/dist/css/adminlte.min.css')}}">
-    <!-- use Carbon\carbon; -->
 </head>
 
 <body>
@@ -139,34 +138,6 @@
             echo "Maaf Tidak Dapat di Prose Karena Jumlah Uang Terlalu Besar ";
     }
 
-    // Untuk membuat tanggal dalam format indonesia
-    // $angkaBln = date("n");
-    // switch ($angkaBln) {
-    //     case 1 : $namaBln = "Januari";
-    //         break;
-    //     case 2 : $namaBln = "Februari";
-    //         break;
-    //     case 3 : $namaBln = "Maret";
-    //         break;
-    //     case 4 : $namaBln = "April";
-    //         break;
-    //     case 5 : $namaBln = "Mei";
-    //         break;
-    //     case 6 : $namaBln = "Juni";
-    //         break;
-    //     case 7 : $namaBln = "Juli";
-    //         break;
-    //     case 8 : $namaBln = "Agustus";
-    //         break;
-    //     case 9 : $namaBln = "September";
-    //         break;
-    //     case 10: $namaBln = "Oktober";
-    //         break;
-    //     case 11: $namaBln = "November";
-    //         break;
-    //     case 12: $namaBln = "Desember";
-    //         break;
-    //}
     ?>
 </body>
 
