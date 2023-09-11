@@ -296,7 +296,7 @@
                                                 <tr>
                                                     <th>ID</th>
                                                     <th>Nama</th>
-                                                    <th>Tanggal</th>
+                                                    <th>Nominal</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
