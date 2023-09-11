@@ -45,7 +45,7 @@
         <div class="col-sm-2 invoice-col">
             <center>
                 <h2><b>KUITANSI</b></h2><br>
-                <span class="border border-4" style="width: 150px;">
+                <span class="border-4" style="width: 150px;">
                     <b>No. {{$data_transaksi->id}}</b>
                 </span>
         </div>
