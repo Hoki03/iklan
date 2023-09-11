@@ -49,9 +49,7 @@
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="beranda" class="nav-link">Beranda</a>
                 </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="#" class="nav-link">Kontak</a>
-                </li>
+
             </ul>
             <!-- Right navbar links -->
             <ul class="navbar-nav ml-auto">
@@ -197,7 +195,16 @@
                             <!-- small box -->
                             <div class="small-box bg-success">
                                 <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
+                                    <?php $nilai = '0';
+                                    foreach ($data_transaksi as $d) : ?>
+                                        <?php $dt = new DateTime($d['tanggal']); ?>
+                                        <?php $now = new DateTime(); ?>
+                                        <?php if ($dt->format('Y-m-d') == $now->format('Y-m-d')) {
+                                            $nilai = $nilai + 1;
+                                        } ?>
+                                    <?php endforeach
+                                    ?>
+                                    <h3><?php echo $nilai ?></h3>
 
                                     <p>Transaksi Hari Ini</p>
                                 </div>
@@ -212,9 +219,18 @@
                             <!-- small box -->
                             <div class="small-box bg-danger">
                                 <div class="inner">
-                                    <h3>65</h3>
+                                    <?php $nilai = '0';
+                                    foreach ($data_transaksi as $d) : ?>
+                                        <?php $dt = new DateTime($d['tanggal']); ?>
+                                        <?php $now = new DateTime(); ?>
+                                        <?php if ($dt->format('Y-m') == $now->format('Y-m')) {
+                                            $nilai = $nilai + 1;
+                                        } ?>
+                                    <?php endforeach
+                                    ?>
+                                    <h3><?php echo $nilai ?></h3>
 
-                                    <p>Unique Visitors</p>
+                                    <p>Transaksi Bulan Ini</p>
                                 </div>
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
@@ -278,16 +294,23 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+
                                                 <?php foreach ($data_transaksi as $d) : ?>
-                                                    <tr>
-                                                        <?php if ($d['jenis_id'] == 1) { ?>
-                                                            <td><a href="{{route('operator.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
-                                                            <td><?= $d['nama']; ?></td>
-                                                            <td>
-                                                                <?php echo tanggal($d['tanggal']) ?>
-                                                            </td>
-                                                        <?php } ?>
-                                                    </tr>
+                                                    <?php $dt = new DateTime($d['tanggal']); ?>
+                                                    <?php $now = new DateTime(); ?>
+                                                    <?php if ($dt->format('Y-m-d') == $now->format('Y-m-d')) { ?>
+                                                        <tr>
+                                                            <?php if ($d['jenis_id'] == 1) { ?>
+                                                                <td><a href="{{route('operator.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
+                                                                <td><?= $d['nama']; ?></td>
+                                                                <td>
+                                                                    <?php echo tanggal($d['tanggal']) ?>
+                                                                </td>
+                                                            <?php } ?>
+                                                        </tr>
+
+                                                    <?php } ?>
+
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
@@ -331,15 +354,21 @@
                                             </thead>
                                             <tbody>
                                                 <?php foreach ($data_transaksi as $d) : ?>
-                                                    <tr>
-                                                        <?php if ($d['jenis_id'] == 2) { ?>
-                                                            <td><a href="{{route('operator.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
-                                                            <td><?= $d['nama']; ?></td>
-                                                            <td>
-                                                                <?php echo tanggal($d['tanggal']) ?>
-                                                            </td>
-                                                        <?php } ?>
-                                                    </tr>
+                                                    <?php $dt = new DateTime($d['tanggal']); ?>
+                                                    <?php $now = new DateTime(); ?>
+                                                    <?php if ($dt->format('Y-m-d') == $now->format('Y-m-d')) { ?>
+                                                        <tr>
+                                                            <?php if ($d['jenis_id'] == 2) { ?>
+                                                                <td><a href="{{route('operator.struk',['id'=>$d->id])}}" rel="noopener" target="_blank"><?= $d['id']; ?></a></td>
+                                                                <td><?= $d['nama']; ?></td>
+                                                                <td>
+                                                                    <?php echo tanggal($d['tanggal']) ?>
+                                                                </td>
+                                                            <?php } ?>
+                                                        </tr>
+
+                                                    <?php } ?>
+
                                                 <?php endforeach; ?>
                                             </tbody>
                                         </table>
