@@ -71,7 +71,7 @@
                 </tr>
                 <tr>
                     <td>Tanggal :</td>
-                    <td><?= date("d F Y", strtotime($data_transaksi['tanggal'])); ?></td>
+                    <td><?=tanggal("d F Y", strtotime($data_transaksi['tanggal'])); ?></td>
                 </tr>
                 <tr>
                     <td>Jenis :</td>
@@ -112,6 +112,7 @@
     <!-- Page specific script -->
     <script>
         window.addEventListener("load", window.print());
+        print.setPaper([0, 0, 685.98, 396.85], 'landscape');
     </script>
     <?php
 
@@ -139,6 +140,32 @@
     }
 
     ?>
+    <?php
+    function tanggal($tanggal)
+    {
+        $bulan = array(
+            1 => 'Januari',
+            'Februari',
+            'Maret',
+            'April',
+            'Mei',
+            'Juni',
+            'Juli',
+            'Agustus',
+            'September',
+            'Oktober',
+            'November',
+            'Desember'
+        );
+
+        $pecahkan = explode('-', $tanggal);
+
+        // variabel pecahkan 0 = tahun
+        // variabel pecahkan 1 = bulan
+        // variabel pecahkan 2 = tanggal
+
+        return $pecahkan[2] . ' ' . $bulan[(int)$pecahkan[1]] . ' ' . $pecahkan[0];
+    } ?>
 </body>
 
 </html>
